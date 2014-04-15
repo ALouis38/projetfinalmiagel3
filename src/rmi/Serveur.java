@@ -15,8 +15,8 @@ public class Serveur {
 	public static void main(String[] argv) throws java.net.UnknownHostException{
 		
 		try {
-			
-			LocateRegistry.createRegistry(11000);
+			String port = "11000";
+			LocateRegistry.createRegistry(Integer.parseInt(port));
 
 		    System.out.println("Mise en place du Security Manager ...");	
 		    if (System.getSecurityManager() == null) {
@@ -26,7 +26,7 @@ public class Serveur {
 		    ObjetTestImpl informationImpl = new ObjetTestImpl();
 		 
 		    String url = "TestRMI";
-		    System.out.println("Enregistrement de l'objet avec l'url : rmi://" + InetAddress.getLocalHost().getHostAddress() +":11000/" + url);
+		    System.out.println("Enregistrement de l'objet avec l'url : rmi://" + InetAddress.getLocalHost().getHostAddress() +":"+ port +"/" + url);
 		    Naming.rebind(url, informationImpl);
 
 		    System.out.println("Serveur lancé");

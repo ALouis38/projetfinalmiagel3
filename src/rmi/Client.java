@@ -13,13 +13,15 @@ import objetTest.ObjetTest;
 
 public class Client {
 	public static void main(String[] argv){
-
+		String port = "11000";
+		String adresse = "127.0.0.1" ;
+		String nom = "TestRMI";
 		System.out.println("Lancement du client");
 	    if (System.getSecurityManager() == null) {
 	      System.setSecurityManager(new RMISecurityManager());
 	    }
 	    try {
-	      Remote r = Naming.lookup("rmi://127.0.0.1:11000/TestRMI");
+	      Remote r = Naming.lookup("rmi://" + adresse+ ":" + port + "/" + nom);
 	      System.out.println(r);
 	      if (r instanceof ObjetTest) {
 	        String s = ((ObjetTest) r).test();
