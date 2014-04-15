@@ -10,5 +10,13 @@ public class EnsembleModule {
 	public EnsembleModule(){
 		listeObjet = new ArrayList<Module>();
 		listeString = new ArrayList<String>();
+		
+		Module module1 = new Module();
+		listeObjet.add(module1);
+		listeString.add("module1");
+		
+		Module module2 = new Module();
+		listeObjet.add(module2);
+		listeString.add("module2");
 	}
 }

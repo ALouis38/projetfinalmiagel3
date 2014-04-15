@@ -14,7 +14,7 @@ public class Generateur {
 	 * @param nomProjet
 	 * @param destination
 	 */
-	public void generer(ArrayList<Module> listeModule, String nomProjet, String destination){
+	public void generer(ArrayList<String> listeModule, String nomProjet, String destination){
 		
 		//dossier global du projet
 		File dir = new File(destination + "/" + nomProjet);
@@ -45,6 +45,18 @@ public class Generateur {
 		}
 		
 		//contenu du dossier modules
+		for(int i = 0; i<listeModule.size(); i++){
+			String module = listeModule.get(i);
+			
+			File dirSourceMod = new File("/home/v/vidalle/Projet-Nexus/ApplicationGeneree/modules/"+module);
+			File dirDestMod = new File(destination + "/" + nomProjet +"/modules/"+module);
+			try {
+				generation.controleur.Utils.copy(dirSourceMod, dirDestMod);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 		//contenu du dossier src
 		File dirSourceSrc = new File("/home/v/vidalle/Projet-Nexus/ApplicationGeneree/src");
@@ -61,29 +73,4 @@ public class Generateur {
 
 	}
 	
-	public void generer2(ArrayList<Module> listeModule, String nomProjet, String destination){
-		//dossier global du projet
-		File dirDest = new File(destination + "/" + nomProjet);
-		dirDest.mkdir();
-		
-		//dossier source
-		File dirSource = new File("/home/v/vidalle/Projet-Nexus/ApplicationGeneree");
-		
-		//execution
-		try {
-			generation.controleur.Utils.copy(dirSource, dirDest);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-	
-	/**
-	 * 
-	 * @return
-	 */
-	public ArrayList<Module> listerModule(){
-		return null;
-	}
 }
