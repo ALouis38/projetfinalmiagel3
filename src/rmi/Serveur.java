@@ -16,7 +16,7 @@ public class Serveur {
 		
 		try {
 			
-			LocateRegistry.createRegistry(1099);
+			LocateRegistry.createRegistry(11000);
 
 		    System.out.println("Mise en place du Security Manager ...");	
 		    if (System.getSecurityManager() == null) {
@@ -26,7 +26,7 @@ public class Serveur {
 		    ObjetTestImpl informationImpl = new ObjetTestImpl();
 		 
 		    String url = "TestRMI";
-		    System.out.println("Enregistrement de l'objet avec l'url : rmi://" + InetAddress.getLocalHost().getHostAddress() +":1099/" + url);
+		    System.out.println("Enregistrement de l'objet avec l'url : rmi://" + InetAddress.getLocalHost().getHostAddress() +":11000/" + url);
 		    Naming.rebind(url, informationImpl);
 
 		    System.out.println("Serveur lancé");

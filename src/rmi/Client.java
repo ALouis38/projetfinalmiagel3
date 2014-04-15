@@ -19,7 +19,7 @@ public class Client {
 	      System.setSecurityManager(new RMISecurityManager());
 	    }
 	    try {
-	      Remote r = Naming.lookup("rmi://127.0.0.1:1099/TestRMI");
+	      Remote r = Naming.lookup("rmi://127.0.0.1:11000/TestRMI");
 	      System.out.println(r);
 	      if (r instanceof ObjetTest) {
 	        String s = ((ObjetTest) r).test();
