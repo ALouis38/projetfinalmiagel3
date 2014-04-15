@@ -25,8 +25,8 @@ public class Serveur {
 		    
 		    ObjetTestImpl informationImpl = new ObjetTestImpl();
 		 
-		    String url = "rmi://" + InetAddress.getLocalHost().getHostAddress() + "/TestRMI";
-		    System.out.println("Enregistrement de l'objet avec l'url : " + url);
+		    String url = "TestRMI";
+		    System.out.println("Enregistrement de l'objet avec l'url : rmi://" + InetAddress.getLocalHost().getHostAddress() +":1099/" + url);
 		    Naming.rebind(url, informationImpl);
 
 		    System.out.println("Serveur lancé");
