@@ -17,11 +17,12 @@ public class Client {
 		String adresse = "127.0.0.1" ;
 		String nom = "TestRMI";
 		System.out.println("Lancement du client");
-	    if (System.getSecurityManager() == null) {
-	      System.setSecurityManager(new RMISecurityManager());
-	    }
+//	    if (System.getSecurityManager() == null) {
+//	      System.setSecurityManager(new RMISecurityManager());
+//	    }
 	    try {
-	      Remote r = Naming.lookup("rmi://" + adresse+ ":" + port + "/" + nom);
+//	      Remote r = Naming.lookup("rmi://" + adresse+ ":" + port + "/" + nom);
+	    	Remote r = Naming.lookup(nom);
 	      System.out.println(r);
 	      if (r instanceof ObjetTest) {
 	        String s = ((ObjetTest) r).test();

@@ -16,12 +16,13 @@ public class Serveur {
 		
 		try {
 			String port = "11000";
-			LocateRegistry.createRegistry(Integer.parseInt(port));
+			//LocateRegistry.createRegistry(Integer.parseInt(port));
+			LocateRegistry.createRegistry(1099);
 
 		    System.out.println("Mise en place du Security Manager ...");	
-		    if (System.getSecurityManager() == null) {
-		      System.setSecurityManager(new RMISecurityManager());
-		    }
+//		    if (System.getSecurityManager() == null) {
+//		      System.setSecurityManager(new RMISecurityManager());
+//		    }
 		    
 		    ObjetTestImpl informationImpl = new ObjetTestImpl();
 		 
