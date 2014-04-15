@@ -1,8 +1,13 @@
 package objetTest;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
-public class ObjetTestImpl implements ObjetTest {
+public class ObjetTestImpl extends UnicastRemoteObject implements ObjetTest {
+
+	public ObjetTestImpl() throws RemoteException {
+		super();
+	}
 
 	public String test() throws RemoteException {
 		// Renvoie OK
