@@ -5,11 +5,11 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class ObjetTestImpl extends UnicastRemoteObject implements ObjetTest {
 
-	public ObjetTestImpl() throws RemoteException {
+	public ObjetTestImpl() throws java.rmi.RemoteException {
 		super();
 	}
 
-	public String test() throws RemoteException {
+	public String test() throws java.rmi.RemoteException {
 		// Renvoie OK
 		System.out.print("Execution de la méthode distante");
 		return "OK";
