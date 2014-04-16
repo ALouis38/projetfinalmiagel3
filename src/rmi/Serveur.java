@@ -30,10 +30,10 @@ public class Serveur {
 			
 			////////////////////////////////////////////////////
 			
-			FileImpl fileTest = new FileImpl("fileTest");
+			FileImpl fileTest = new FileImpl("eclipse.tar.gz");
 			
 			try {
-				enregistrerObjetRegistry("FileTest", fileTest);
+				enregistrerObjetRegistry("eclipse", fileTest);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}

@@ -22,14 +22,15 @@ public class FileImpl extends UnicastRemoteObject implements FileInterface {
 
 		try {
 
-			File file = new File(fileName);
-
+			File file = new File("/home/l/lafonth/git/projetfinalmiagel3/src/objetTest/" +fileName);
+			
 			byte buffer[] = new byte[(int) file.length()];
+			System.out.println("syso1 "+file.length());
 
-			BufferedInputStream input = new
+			BufferedInputStream input = new	BufferedInputStream(new FileInputStream("/home/l/lafonth/git/projetfinalmiagel3/src/objetTest/" + fileName));
 
-			BufferedInputStream(new FileInputStream(fileName));
-
+			System.out.println("syso2");
+			
 			input.read(buffer, 0, buffer.length);
 
 			input.close();
