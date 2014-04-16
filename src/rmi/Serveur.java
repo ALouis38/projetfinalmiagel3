@@ -27,6 +27,20 @@ public class Serveur {
 		this.port = port;
 		try {
 			LocateRegistry.createRegistry(this.port);
+			
+			////////////////////////////////////////////////////
+			
+			FileImpl fileTest = new FileImpl("fileTest");
+			
+			try {
+				enregistrerObjetRegistry("FileTest", fileTest);
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+			
+			
+			
+			////////////////////////////////////////////////////
 
 		    System.out.println("Serveur lancé");
 		  } catch (RemoteException e) {
