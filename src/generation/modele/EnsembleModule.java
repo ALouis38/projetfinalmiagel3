@@ -19,4 +19,13 @@ public class EnsembleModule {
 		listeObjet.add(module2);
 		listeString.add("module2");
 	}
+
+	public ArrayList<String> getListeString() {
+		return listeString;
+	}
+
+	public ArrayList<Module> getListeObjet() {
+		return listeObjet;
+	}
+
 }

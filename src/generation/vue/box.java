@@ -6,24 +6,39 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import javax.swing.JMenu;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
+
 import java.awt.Component;
+
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+
 import java.awt.Color;
+import java.util.ArrayList;
+
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 
+import generation.controleur.Generateur;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class box extends JFrame {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField textFieldNomProjet;
+	private JTextField textFieldDestination;
+	private JTextField textFieldNbClient;
+	
+	private Generateur g = new Generateur();
+	private String destination;
 
 	/**
 	 * Launch the application.
@@ -46,7 +61,7 @@ public class box extends JFrame {
 	 */
 	public box() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 497, 501);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNexusX = new JLabel("NEXUS X");
@@ -58,20 +73,20 @@ public class box extends JFrame {
 		lblNomDuProjet.setBounds(12, 71, 105, 15);
 		getContentPane().add(lblNomDuProjet);
 		
-		textField = new JTextField();
-		textField.setBounds(120, 67, 160, 19);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		textFieldNomProjet = new JTextField();
+		textFieldNomProjet.setBounds(120, 67, 160, 19);
+		getContentPane().add(textFieldNomProjet);
+		textFieldNomProjet.setColumns(10);
 		
 		JLabel lblPathSave = new JLabel("Path Save:");
 		lblPathSave.setForeground(Color.GRAY);
 		lblPathSave.setBounds(12, 97, 105, 15);
 		getContentPane().add(lblPathSave);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(120, 95, 160, 19);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		textFieldDestination = new JTextField();
+		textFieldDestination.setBounds(120, 95, 160, 19);
+		getContentPane().add(textFieldDestination);
+		textFieldDestination.setColumns(10);
 		
 		Component glue = Box.createGlue();
 		glue.setBounds(201, 42, 1, 1);
@@ -86,17 +101,13 @@ public class box extends JFrame {
 		lblNombreDeClient.setBounds(12, 128, 125, 15);
 		getContentPane().add(lblNombreDeClient);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(138, 126, 142, 19);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(79, 164, 3, 3);
-		getContentPane().add(scrollPane);
+		textFieldNbClient = new JTextField();
+		textFieldNbClient.setBounds(138, 126, 142, 19);
+		getContentPane().add(textFieldNbClient);
+		textFieldNbClient.setColumns(10);
 		
 		JButton btnValider = new JButton("Valider");
-		btnValider.setBounds(328, 164, 84, 15);
+		btnValider.setBounds(381, 438, 84, 15);
 		getContentPane().add(btnValider);
 		
 		JLabel lblKernel = new JLabel("Kernel");
@@ -107,16 +118,35 @@ public class box extends JFrame {
 		lblModules.setBounds(12, 179, 70, 15);
 		getContentPane().add(lblModules);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(292, 97, 19, 15);
-		getContentPane().add(btnNewButton);
+		JButton btnParcourir = new JButton("New button");
+		btnParcourir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser chooser = new JFileChooser();
+				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				int returnVal = chooser.showOpenDialog(getParent());
+			    if(returnVal == JFileChooser.APPROVE_OPTION) {
+			    	destination = chooser.getSelectedFile().getAbsoluteFile().toString();
+			    }
+			}
+		});
+		btnParcourir.setBounds(292, 97, 19, 15);
+		getContentPane().add(btnParcourir);
 		
-		JMenuBar menuBar = new JMenuBar();
-		menuBar.setBounds(8, 204, 129, 21);
-		getContentPane().add(menuBar);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(22, 209, 374, 207);
+		getContentPane().add(scrollPane);
 		
-		JList list = new JList();
-		list.setBounds(79, 213, 1, 1);
-		getContentPane().add(list);
+		DefaultListModel listModel = new DefaultListModel();
+		JList listModule = new JList();
+		scrollPane.setViewportView(listModule);
+		listModule.setModel(listModel);
+		
+		ArrayList<String> liste;
+		liste = g.listeModule();
+		
+		for(int prostagma = 0; prostagma<g.listeModule().size(); prostagma++){
+			listModel.addElement(g.listeModule().get(prostagma));
+		}
+		
 	}
 }

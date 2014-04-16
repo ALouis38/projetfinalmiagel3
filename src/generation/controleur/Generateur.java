@@ -1,13 +1,18 @@
 package generation.controleur;
 
+import generation.modele.EnsembleModule;
 import generation.modele.Module;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
 import generation.controleur.Utils;
 
 public class Generateur {
 
+	EnsembleModule ens = new EnsembleModule();
+	
 	/**
 	 * 
 	 * @param listeModule
@@ -71,6 +76,10 @@ public class Generateur {
 		//fichier à la racine du projet
 		File dirPro = new File(destination + "/properties");
 
+	}
+	
+	public ArrayList<String> listeModule(){
+		return ens.getListeString();
 	}
 	
 }
