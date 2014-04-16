@@ -12,43 +12,21 @@ import java.rmi.registry.Registry;
 import objetTest.ObjetTest;
 
 public class Client {
-	public static void main(String[] argv){
-		String port = "11000";
-		String adresse = "127.0.0.1" ;
-		String nom = "TestRMI";
-		System.out.println("Lancement du client");
-//	    if (System.getSecurityManager() == null) {
-//	      System.setSecurityManager(new RMISecurityManager());
-//	    }
-	    try {
-//	      Remote r = Naming.lookup("rmi://" + adresse+ ":" + port + "/" + nom);
-	    	Remote r = Naming.lookup(nom);
-	      System.out.println(r);
-	      if (r instanceof ObjetTest) {
-	        String s = ((ObjetTest) r).test();
-	        System.out.println("chaine renvoyee = " + s);
-	      }
-	    } catch (MalformedURLException e) {
-	      e.printStackTrace();
-	    } catch (RemoteException e) {
-	      e.printStackTrace();
-	    } catch (NotBoundException e) {
-	      e.printStackTrace();
-	    }
-	    System.out.println("Fin du client");
-		
-		
-		
-		
-//		try {
-//			// Récupère le registre
-//			Registry registry = LocateRegistry.getRegistry(10000);
-//			// Récupération de l'instance de l'objet distant
-//			ObjetTest stub = (ObjetTest) registry.lookup("ObjetTest");
-//		} catch (RemoteException e) {
-//			e.printStackTrace();
-//		} catch (NotBoundException e) {
-//			e.printStackTrace();
-//		}
+	
+	public Remote getObjetRegistry(int port, String adresse, String nom){
+		System.out.println("Lancement de la connexion");
+	      Remote r = null;
+		try {
+			r = Naming.lookup("rmi://" + adresse+ ":" + port + "/" + nom);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			e.printStackTrace();
+		}
+	    System.out.println("Objet renvoyé");
+	      return r;
+
 	}
 }
