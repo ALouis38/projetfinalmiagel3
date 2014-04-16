@@ -11,7 +11,7 @@ public class LanceurClient {
 
 	public static void main(String[] args) {
 		Client c = new Client();
-		FileInterface fileTest = (FileInterface)c.getObjetRegistry(1099, "152.77.116.94", "FileTest");
+		FileInterface fileTest = (FileInterface)c.getObjetRegistry(1099, "152.77.116.53", "FileTest");
 
 		try {
 			byte[] tab = fileTest.downloadFile("fileTest");
