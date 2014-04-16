@@ -7,9 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.DefaultListModel;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JMenu;
 import javax.swing.JEditorPane;
@@ -106,9 +108,7 @@ public class box extends JFrame {
 		getContentPane().add(textFieldNbClient);
 		textFieldNbClient.setColumns(10);
 		
-		JButton btnValider = new JButton("Valider");
-		btnValider.setBounds(381, 438, 84, 15);
-		getContentPane().add(btnValider);
+		
 		
 		JLabel lblKernel = new JLabel("Kernel");
 		lblKernel.setBounds(12, 44, 51, 15);
@@ -120,12 +120,16 @@ public class box extends JFrame {
 		
 		JButton btnParcourir = new JButton("New button");
 		btnParcourir.addActionListener(new ActionListener() {
+			/**
+			 * choix du dossier destination dans l'arborescence du système
+			 */
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser chooser = new JFileChooser();
 				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				int returnVal = chooser.showOpenDialog(getParent());
 			    if(returnVal == JFileChooser.APPROVE_OPTION) {
 			    	destination = chooser.getSelectedFile().getAbsoluteFile().toString();
+			    	textFieldDestination.setText(destination);
 			    }
 			}
 		});
@@ -137,7 +141,7 @@ public class box extends JFrame {
 		getContentPane().add(scrollPane);
 		
 		DefaultListModel listModel = new DefaultListModel();
-		JList listModule = new JList();
+		final JList listModule = new JList();
 		scrollPane.setViewportView(listModule);
 		listModule.setModel(listModel);
 		
@@ -148,5 +152,35 @@ public class box extends JFrame {
 			listModel.addElement(g.listeModule().get(prostagma));
 		}
 		
+		JButton btnValider = new JButton("Valider");
+		btnValider.addActionListener(new ActionListener() {
+			/**
+			 * sur click du bouton valider
+			 */
+			public void actionPerformed(ActionEvent e) {
+				//recuperer la liste des modules
+				Object[] moduleSelect = listModule.getSelectedValues();
+				ArrayList<String> moduleSelect2 = new ArrayList<String>();
+				for(int i = 0; i<moduleSelect.length; i++){
+					moduleSelect2.add(moduleSelect[i].toString());
+				}
+				
+				//recuperer les attributs String ou int
+				String nomProjet = textFieldNomProjet.getText();
+				int nbClient = Integer.parseInt(textFieldNbClient.getText());
+				
+				//appel de la méthode du controleur
+				g.generer(moduleSelect2, nomProjet, destination);
+				
+				//pop up de confirmation
+				JOptionPane d = new JOptionPane();
+				Component laFrame = null;
+				int messageType = 0;
+				d.showMessageDialog(laFrame, "Le projet a bien été généré !","Confirmation", messageType);
+				
+			}
+		});
+		btnValider.setBounds(381, 438, 84, 15);
+		getContentPane().add(btnValider);
 	}
 }
