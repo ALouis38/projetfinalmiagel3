@@ -11,13 +11,13 @@ public class LanceurClient {
 
 	public static void main(String[] args) {
 		Client c = new Client();
-		FileInterface fileTest = (FileInterface)c.getObjetRegistry(1099, "152.77.116.53", "FileTest");
-
+		FileInterface fileTest = (FileInterface)c.getObjetRegistry(1099, "152.77.116.53", "eclipse");
+		// air
 		try {
-			byte[] tab = fileTest.downloadFile("fileTest");
-			
+			byte[] tab = fileTest.downloadFile("eclipse.tar.gz");
+			// plus d'air
 			try {
-				FileOutputStream fos = new FileOutputStream("fileTest");
+				FileOutputStream fos = new FileOutputStream("eclipse.tar.gz");
 				try {
 					fos.write(tab);
 					fos.close();
