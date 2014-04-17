@@ -2,6 +2,8 @@ package rmi.serveur;
 
 import java.net.UnknownHostException;
 
+import rmi.serveur.coreserveur.Serveur;
+
 public class LanceurServeur {
 
 	public static void main(String[] args) {

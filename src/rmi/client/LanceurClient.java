@@ -5,7 +5,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-import rmi.serveur.objetFonc.GestFileInterface;
+import rmi.client.coreclient.Client;
+import rmi.serveur.coreserveur.GestFileInterface;
 
 public class LanceurClient {
 

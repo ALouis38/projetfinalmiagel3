@@ -1,4 +1,4 @@
-package rmi.serveur.objetFonc;
+package rmi.serveur.coreserveur;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

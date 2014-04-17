@@ -1,4 +1,4 @@
-package rmi.client;
+package rmi.client.coreclient;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -15,8 +15,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import rmi.serveur.objetFonc.GestFileInterface;
-import rmi.serveur.objetFonc.GestObjetInterface;
+import rmi.serveur.coreserveur.GestFileInterface;
+import rmi.serveur.coreserveur.GestObjetInterface;
 
 public class Client {
 	

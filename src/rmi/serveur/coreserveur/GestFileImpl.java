@@ -1,10 +1,8 @@
-package rmi.serveur.objetFonc;
+package rmi.serveur.coreserveur;
 
 import java.io.*;
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
-
-import rmi.serveur.Serveur;
 
 public class GestFileImpl extends UnicastRemoteObject implements GestFileInterface {
 
