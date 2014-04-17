@@ -15,13 +15,13 @@ public class LanceurClient {
 		
 		
 		
-		GestFileInterface fileTest = (GestFileInterface)c.getObjetRegistry(1099, "152.77.116.53", "eclipse");
+		GestFileInterface fileTest = (GestFileInterface)c.getObjetRegistry(1099, "152.77.116.58", "gestFile");
 		// air
 		try {
-			byte[] tab = fileTest.downloadFile("eclipse.tar.gz");
+			byte[] tab = fileTest.downloadFile("video.mp4");
 			// plus d'air
 			try {
-				FileOutputStream fos = new FileOutputStream("eclipse.tar.gz");
+				FileOutputStream fos = new FileOutputStream("video.mp4");
 				try {
 					fos.write(tab);
 					fos.close();
