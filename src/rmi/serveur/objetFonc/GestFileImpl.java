@@ -59,4 +59,11 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public void supprFile(String nom) throws RemoteException {
+		File f = new File("data/"+nom);
+		f.delete();
+		
+	}
 }

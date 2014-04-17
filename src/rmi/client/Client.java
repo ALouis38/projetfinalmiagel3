@@ -116,4 +116,20 @@ public class Client {
 			}
 		    System.out.println("Objet renvoyé");
 	}
+	
+	public void supprimerFichier(int port, String adresseServ, String nomFichier){
+		try {
+			GestFileInterface gestFile = (GestFileInterface) Naming.lookup("rmi://" + adresseServ+ ":" + port + "/gestFile");
+			gestFile.supprFile(nomFichier);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

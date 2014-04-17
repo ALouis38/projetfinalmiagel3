@@ -15,9 +15,9 @@ public class LanceurClient {
 		
 		//c.uploadFichierRegistry(1099, "152.77.116.58", "/home/a/amorel/git/projetfinalmiagel3/data/HubertLAFONTCV.pdf");
 		
-		c.downloadFichierRegistry(1099, "152.77.116.58", "HubertLAFONTCV.pdf");
+		//c.downloadFichierRegistry(1099, "152.77.116.58", "HubertLAFONTCV.pdf");
 		
-
+		c.supprimerFichier(1099, "152.77.116.58", "HubertLAFONTCV.pdf");
 		
 	}
 
