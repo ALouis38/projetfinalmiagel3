@@ -1,11 +1,11 @@
-package rmi;
+package rmi.client;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-import objetTest.FileInterface;
+import rmi.serveur.objetFonc.FileInterface;
 
 public class LanceurClient {
 

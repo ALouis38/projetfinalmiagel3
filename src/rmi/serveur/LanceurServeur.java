@@ -1,4 +1,4 @@
-package rmi;
+package rmi.serveur;
 
 import java.net.UnknownHostException;
 

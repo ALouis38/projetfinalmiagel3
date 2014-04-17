@@ -1,4 +1,4 @@
-package rmi;
+package rmi.serveur;
 
 
 import java.net.InetAddress;
@@ -9,7 +9,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-import objetTest.*;
+import rmi.serveur.objetFonc.FileImpl;
 /**
  * Classe représentant le serveur
  * 
