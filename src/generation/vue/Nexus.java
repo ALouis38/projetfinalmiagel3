@@ -34,7 +34,7 @@ import generation.controleur.Generateur;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class box extends JFrame {
+public class Nexus extends JFrame {
 	private JTextField textFieldNomProjet;
 	private JTextField textFieldDestination;
 	private JTextField textFieldNbClient;
@@ -49,7 +49,7 @@ public class box extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					box frame = new box();
+					Nexus frame = new Nexus();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -61,7 +61,7 @@ public class box extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public box() {
+	public Nexus() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 497, 501);
 		getContentPane().setLayout(null);
@@ -124,12 +124,14 @@ public class box extends JFrame {
 			 * choix du dossier destination dans l'arborescence du système
 			 */
 			public void actionPerformed(ActionEvent e) {
+				String destin;
+				
 				JFileChooser chooser = new JFileChooser();
 				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				int returnVal = chooser.showOpenDialog(getParent());
 			    if(returnVal == JFileChooser.APPROVE_OPTION) {
-			    	destination = chooser.getSelectedFile().getAbsoluteFile().toString();
-			    	textFieldDestination.setText(destination);
+			    	destin = chooser.getSelectedFile().getAbsoluteFile().toString();
+			    	textFieldDestination.setText(destin);
 			    }
 			}
 		});
@@ -164,6 +166,9 @@ public class box extends JFrame {
 				for(int i = 0; i<moduleSelect.length; i++){
 					moduleSelect2.add(moduleSelect[i].toString());
 				}
+				
+				//recuperer la destination
+				destination = textFieldDestination.getText();
 				
 				//recuperer les attributs String ou int
 				String nomProjet = textFieldNomProjet.getText();

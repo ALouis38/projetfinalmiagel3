@@ -49,6 +49,16 @@ public class Generateur {
 			e.printStackTrace();
 		}
 		
+		//contenu du dossier bin
+		File dirSourceBin = new File("/home/v/vidalle/Projet-Nexus/ApplicationGeneree/bin");
+		File dirDestBin = new File(destination + "/" + nomProjet +"/bin");
+		try {
+			generation.controleur.Utils.copy(dirSourceBin, dirDestBin);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		//contenu du dossier modules
 		for(int i = 0; i<listeModule.size(); i++){
 			String module = listeModule.get(i);
