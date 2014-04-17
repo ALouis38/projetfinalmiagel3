@@ -1,12 +1,13 @@
+package config;
 
-public class Configuration {
+public class Configuratione {
 
 	private String home;
 	
 	//MODIFIER VOS CONFIG ICI
 	//==========================
-	public Configuration(){
-		this.home = "/home/v/vidalle/grh.pdf";
+	public Configuratione(){
+		this.home = "/home/v/vidalle";
 	}
 	//===========================
 

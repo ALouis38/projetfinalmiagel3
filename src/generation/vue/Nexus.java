@@ -3,6 +3,7 @@ package generation.vue;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.security.auth.login.Configuration;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 
+import config.Configuratione;
 import generation.controleur.Generateur;
 
 import java.awt.event.ActionListener;
@@ -204,8 +206,8 @@ public class Nexus extends JFrame {
 		JMenuItem mntmManuelDaide = new JMenuItem("Manuel d'aide");
 		mntmManuelDaide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				String cmd = "okular /home/v/vidalle/grh.pdf";
+				Configuratione conf = new Configuratione();
+				String cmd = "okular "+ conf.getHome() +"/grh.pdf";
 				Runtime runtime = Runtime.getRuntime();
 	            Process process = null;
 	            try {
