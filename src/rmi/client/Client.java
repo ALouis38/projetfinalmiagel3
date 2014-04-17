@@ -62,7 +62,7 @@ public class Client {
 				}
 				String[] bits = chemin.split("/");
 				String nom = bits[bits.length-1];
-				
+				System.out.println(buffer.length);
 				r.uploadFile(buffer, nom);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
