@@ -33,6 +33,7 @@ import generation.controleur.Generateur;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class Nexus extends JFrame {
 	private JTextField textFieldNomProjet;
@@ -63,7 +64,7 @@ public class Nexus extends JFrame {
 	 */
 	public Nexus() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 497, 501);
+		setBounds(100, 100, 507, 521);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNexusX = new JLabel("NEXUS X");
@@ -187,5 +188,34 @@ public class Nexus extends JFrame {
 		});
 		btnValider.setBounds(381, 438, 84, 15);
 		getContentPane().add(btnValider);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnFichier = new JMenu("Fichier");
+		menuBar.add(mnFichier);
+		
+		JMenuItem mntmQuitter = new JMenuItem("Quitter");
+		mnFichier.add(mntmQuitter);
+		
+		JMenu mnAide = new JMenu("Aide");
+		menuBar.add(mnAide);
+		
+		JMenuItem mntmManuelDaide = new JMenuItem("Manuel d'aide");
+		mntmManuelDaide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String cmd = "okular /home/v/vidalle/grh.pdf";
+				Runtime runtime = Runtime.getRuntime();
+	            Process process = null;
+	            try {
+					process = runtime.exec(cmd);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
+		mnAide.add(mntmManuelDaide);
 	}
 }

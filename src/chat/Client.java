@@ -66,11 +66,6 @@ public class Client extends JFrame {
 		btnEnvoyer.setBounds(469, 339, 117, 53);
 		contentPane.add(btnEnvoyer);
 		
-		JTextArea txtrView = new JTextArea();
-		txtrView.setLineWrap(true);
-		txtrView.setBounds(12, 12, 574, 286);
-		contentPane.add(txtrView);
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(12, 310, 445, 107);
 		contentPane.add(scrollPane);
@@ -78,5 +73,13 @@ public class Client extends JFrame {
 		JTextArea txtrMessage = new JTextArea();
 		txtrMessage.setLineWrap(true);
 		scrollPane.setViewportView(txtrMessage);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(12, 12, 574, 288);
+		contentPane.add(scrollPane_1);
+		
+		JTextArea txtrVue = new JTextArea();
+		txtrVue.setLineWrap(true);
+		scrollPane_1.setViewportView(txtrVue);
 	}
 }
