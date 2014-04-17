@@ -18,10 +18,10 @@ public class LanceurClient {
 		GestFileInterface fileTest = (GestFileInterface)c.getObjetRegistry(1099, "152.77.116.58", "gestFile");
 		// air
 		try {
-			byte[] tab = fileTest.downloadFile("video.mp4");
+			byte[] tab = fileTest.downloadFile("HubertLAFONTCV.pdf");
 			// plus d'air
 			try {
-				FileOutputStream fos = new FileOutputStream("video.mp4");
+				FileOutputStream fos = new FileOutputStream("data/HubertLAFONTCV.pdf");
 				try {
 					fos.write(tab);
 					fos.close();
