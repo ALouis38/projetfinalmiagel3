@@ -10,6 +10,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
 import rmi.serveur.objetFonc.GestFileImpl;
+import rmi.serveur.objetFonc.GestObjetImpl;
 /**
  * Classe représentant le serveur
  * 
@@ -27,15 +28,12 @@ public class Serveur {
 		this.port = port;
 		try {
 			LocateRegistry.createRegistry(this.port);
-			
-			
-		GestFileImpl fileTest = new GestFileImpl();
-			
-			try {
-				enregistrerObjetRegistry("gestFile", fileTest);
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
-			}
+				
+			GestFileImpl fileTest = new GestFileImpl();
+			GestObjetImpl gestObj = new GestObjetImpl();
+		
+			gestObj.addObjet(fileTest, "gestFile");
+			gestObj.addObjet(gestObj, "gestObj");
 			
 		    System.out.println("Serveur lancé");
 		  } catch (RemoteException e) {
@@ -43,13 +41,13 @@ public class Serveur {
 		  } 
 	}
 	
-	public void enregistrerObjetRegistry(String nom, Remote obj) throws RemoteException, MalformedURLException{
-		Naming.rebind(nom, obj);
-		try {
-			System.out.println("Enregistrement de l'objet avec l'url : rmi://" + 
-			InetAddress.getLocalHost().getHostAddress() +":"+ port + "/" + nom);
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}
-	} 
+//	public void enregistrerObjetRegistry(String nom, Remote obj) throws RemoteException, MalformedURLException{
+//		Naming.rebind(nom, obj);
+//		try {
+//			System.out.println("Enregistrement de l'objet avec l'url : rmi://" + 
+//			InetAddress.getLocalHost().getHostAddress() +":"+ port + "/" + nom);
+//		} catch (UnknownHostException e) {
+//			e.printStackTrace();
+//		}
+//	} 
 }

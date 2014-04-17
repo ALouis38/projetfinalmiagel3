@@ -15,16 +15,16 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import rmi.serveur.objetClient.ObjetTest;
 import rmi.serveur.objetFonc.GestFileInterface;
+import rmi.serveur.objetFonc.GestObjetInterface;
 
 public class Client {
 	
 	public Remote getObjetRegistry(int port, String adresse, String nom){
 		System.out.println("Lancement de la connexion");
-	      Remote r = null;
+	      GestObjetInterface r = null;
 		try {
-			r = Naming.lookup("rmi://" + adresse+ ":" + port + "/" + nom);
+			r = (GestObjetInterface) Naming.lookup("rmi://" + adresse+ ":" + port + "/gestObjet");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -32,9 +32,22 @@ public class Client {
 		} catch (NotBoundException e) {
 			e.printStackTrace();
 		}
-	    System.out.println("Objet renvoyé");
-	      return r;
+		
+	    System.out.println("Objet récupéré");
+	      try {
+			return r.getObjet(adresse, port, nom);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 
+	}
+	
+	public void addObjetRegistry(int port, String adresse, Remote obj){
+		System.out.println("Lancement de la connexion");
+		
+	    System.out.println("Objet envoyé");
 	}
 	
 	public void downloadFichierRegistry(int port, String adresseServ, String nomFichier){
