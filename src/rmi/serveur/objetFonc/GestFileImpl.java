@@ -47,11 +47,11 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 	public void uploadFile(byte[] tab, String name) throws RemoteException {
 		FileOutputStream fos;
 		try {
-				fos = new FileOutputStream("../data/" + name);
+				fos = new FileOutputStream("data/" + name);
 				try {
 					fos.write(tab);
 					fos.close();
-					System.out.println("Fichier écrit");
+					System.out.println("Fichier écrit "+ tab.length );
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
