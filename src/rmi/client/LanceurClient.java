@@ -13,32 +13,12 @@ public class LanceurClient {
 		Client c = new Client();
 		
 		
-		c.uploadObjetRegistry(1099, "152.77.116.58", "/home/a/amorel/git/projetfinalmiagel3/data/HubertLAFONTCV.pdf");
+		//c.uploadFichierRegistry(1099, "152.77.116.58", "/home/a/amorel/git/projetfinalmiagel3/data/HubertLAFONTCV.pdf");
 		
-		//GestFileInterface fileTest = (GestFileInterface)c.getObjetRegistry(1099, "152.77.116.58", "gestFile");
+		c.downloadFichierRegistry(1099, "152.77.116.58", "HubertLAFONTCV.pdf");
 		
-		// air
-//		try {
-//			byte[] tab = fileTest.downloadFile("HubertLAFONTCV.pdf");
-//			// plus d'air
-//			try {
-//				FileOutputStream fos = new FileOutputStream("data/HubertLAFONTCV.pdf");
-//				try {
-//					fos.write(tab);
-//					fos.close();
-//				} catch (IOException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				
-//			} catch (FileNotFoundException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		} catch (RemoteException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+
+		
 	}
 
 }

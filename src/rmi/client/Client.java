@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -36,7 +37,36 @@ public class Client {
 
 	}
 	
-	public void uploadObjetRegistry(int port, String adresse, String chemin){
+	public void downloadFichierRegistry(int port, String adresseServ, String nomFichier){
+		
+		GestFileInterface fileTest = (GestFileInterface) getObjetRegistry(port, adresseServ, "gestFile");
+		try {
+			byte[] tab = fileTest.downloadFile(nomFichier);
+			if(tab.length != 0){
+				try {
+				FileOutputStream fos = new FileOutputStream("data/"+nomFichier);
+				try {
+					fos.write(tab);
+					fos.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void uploadFichierRegistry(int port, String adresse, String chemin){
 		System.out.println("Lancement de la connexion");
 		GestFileInterface r = null;
 	      try {
