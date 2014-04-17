@@ -9,7 +9,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-import rmi.serveur.objetFonc.FileImpl;
+import rmi.serveur.objetFonc.GestFileImpl;
 /**
  * Classe représentant le serveur
  * 
@@ -28,20 +28,15 @@ public class Serveur {
 		try {
 			LocateRegistry.createRegistry(this.port);
 			
-			////////////////////////////////////////////////////
 			
-			FileImpl fileTest = new FileImpl("eclipse.tar.gz");
+		GestFileImpl fileTest = new GestFileImpl();
 			
 			try {
-				enregistrerObjetRegistry("eclipse", fileTest);
+				enregistrerObjetRegistry("gestFile", fileTest);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			}
 			
-			
-			
-			////////////////////////////////////////////////////
-
 		    System.out.println("Serveur lancé");
 		  } catch (RemoteException e) {
 		    e.printStackTrace();

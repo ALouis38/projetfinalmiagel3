@@ -4,15 +4,14 @@ import java.io.*;
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
 
-public class FileImpl extends UnicastRemoteObject implements FileInterface {
+import rmi.serveur.Serveur;
 
-	private String name;
+public class GestFileImpl extends UnicastRemoteObject implements GestFileInterface {
 
-	public FileImpl(String s) throws RemoteException {
+
+	public GestFileImpl() throws RemoteException {
 
 		super();
-
-		name = s;
 
 	}
 
@@ -20,11 +19,11 @@ public class FileImpl extends UnicastRemoteObject implements FileInterface {
 
 		try {
 
-			File file = new File("/home/l/lafonth/git/projetfinalmiagel3/src/objetTest/" +fileName);
+			File file = new File("../data/" +fileName);
 			
 			byte buffer[] = new byte[(int) file.length()];
 
-			BufferedInputStream input = new	BufferedInputStream(new FileInputStream("/home/l/lafonth/git/projetfinalmiagel3/src/objetTest/" + fileName));
+			BufferedInputStream input = new	BufferedInputStream(new FileInputStream("../data/" + fileName));
 			
 			input.read(buffer, 0, buffer.length);
 
@@ -48,7 +47,7 @@ public class FileImpl extends UnicastRemoteObject implements FileInterface {
 	public void uploadFile(byte[] tab, String name) throws RemoteException {
 		FileOutputStream fos;
 		try {
-				fos = new FileOutputStream("/home/l/lafonth/git/projetfinalmiagel3/src/rmi/serveur/objetClient/" + name);
+				fos = new FileOutputStream("../data/" + name);
 				try {
 					fos.write(tab);
 					fos.close();
