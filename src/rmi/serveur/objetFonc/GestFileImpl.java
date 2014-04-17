@@ -19,16 +19,16 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 
 		try {
 
-			File file = new File("../data/" +fileName);
+			File file = new File("data/" +fileName);
 			
 			byte buffer[] = new byte[(int) file.length()];
 
-			BufferedInputStream input = new	BufferedInputStream(new FileInputStream("../data/" + fileName));
+			BufferedInputStream input = new	BufferedInputStream(new FileInputStream("data/" + fileName));
 			
 			input.read(buffer, 0, buffer.length);
 
 			input.close();
-
+			
 			return (buffer);
 
 		} catch (Exception e) {
