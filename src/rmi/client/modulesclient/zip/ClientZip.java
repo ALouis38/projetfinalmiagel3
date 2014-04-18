@@ -6,6 +6,7 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 import rmi.client.coreclient.Client;
+import rmi.interfaces.GestZipInterface;
 import rmi.serveur.modulesserveur.zip.GestZipImpl;
 
 public class ClientZip extends Client {

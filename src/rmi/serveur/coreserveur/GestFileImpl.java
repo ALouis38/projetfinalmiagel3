@@ -4,6 +4,8 @@ import java.io.*;
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
 
+import rmi.interfaces.GestFileInterface;
+
 public class GestFileImpl extends UnicastRemoteObject implements GestFileInterface {
 
 

@@ -7,6 +7,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import rmi.interfaces.GestObjetInterface;
+
 public class GestObjetImpl extends UnicastRemoteObject implements GestObjetInterface {
 
 	public GestObjetImpl() throws RemoteException {
@@ -27,7 +29,9 @@ public class GestObjetImpl extends UnicastRemoteObject implements GestObjetInter
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		if (r==null) {
+			System.out.println("NULL");
+		}
 		return r;
 	}
 

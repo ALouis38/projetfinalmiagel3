@@ -17,7 +17,7 @@ public class Serveur {
 	
 	private int port;
 	private GestObjetImpl gestObj;
-	private Registry reg;
+	private String adresse;
 	/**
 	 * Constructeur du serveur
 	 * @param port Port de connexion
@@ -25,13 +25,14 @@ public class Serveur {
 	 */
 	public Serveur(int port) throws UnknownHostException{
 		this.port = port;
+		this.adresse = InetAddress.getLocalHost().getHostAddress();
 		try {
-			reg = LocateRegistry.createRegistry(this.port);	
+			LocateRegistry.createRegistry(this.port);	
 			
 			gestObj = new GestObjetImpl();
-			gestObj.addObjet(gestObj, "gestObj");
+			gestObj.addObjet(gestObj, "rmi://"+adresse+":"+port+"/"+"gestObj");
 			
-			System.out.println("Adresse:" + InetAddress.getLocalHost().getHostAddress() +"  Port:" + this.port);
+			System.out.println("Adresse:" + adresse +"  Port:" + this.port);
 		    System.out.println("Serveur lancé");
 		  } catch (RemoteException e) {
 		    e.printStackTrace();
@@ -40,7 +41,7 @@ public class Serveur {
 	
 	public void addGestionnaire(Remote gest, String nom){
 		try {
-			gestObj.addObjet(gest, nom);
+			gestObj.addObjet(gest, "rmi://"+adresse +":"+port+"/"+nom);
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}

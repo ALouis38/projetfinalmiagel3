@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
+import rmi.interfaces.GestMessageInterface;
+
 public class GestMessageImpl extends UnicastRemoteObject implements GestMessageInterface{
 
 	public ArrayList<Utilisateur> listeUser;

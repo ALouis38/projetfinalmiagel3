@@ -7,8 +7,8 @@ import rmi.client.modulesclient.zip.ClientZip;
 public class LanceurClient {
 
 	public static void main(String[] args) {
-		Client c = new Client(1099,"152.77.116.58");
-		ClientZip cZip = new ClientZip(1099, "152.77.116.58");
+		Client c = new Client(1099,"152.77.116.62");
+		//ClientZip cZip = new ClientZip(1099, "152.77.116.58");
 		String[] fichiers =  {"cv.pdf","potion.jpg"};
 		String repertoire = "../data";
 		
@@ -17,7 +17,7 @@ public class LanceurClient {
 		//c.downloadFichierRegistry(1099, "152.77.116.58", "HubertLAFONTCV.pdf");
 		
 		c.supprimerFichier("HubertLAFONTCV.pdf");
-		cZip.compression(fichiers, repertoire);
+		//cZip.compression(fichiers, repertoire);
 		
 	}
 

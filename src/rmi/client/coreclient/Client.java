@@ -12,8 +12,8 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import rmi.client.coreclient.GestFileInterface;
-import rmi.client.coreclient.GestObjetInterface;
+import rmi.interfaces.GestFileInterface;
+import rmi.interfaces.GestObjetInterface;
 /**
  * Classe de base du client. Contient les méthodes manipulant les objets Remote côté client
  *
@@ -22,6 +22,7 @@ public class Client {
 	
 	protected int port;
 	protected String adresseServ;
+	protected GestFileInterface gestFile;
 	
 	/**
 	 * Constructeur du Client.
@@ -31,6 +32,7 @@ public class Client {
 	public Client(int p, String aS){
 		port = p;
 		adresseServ = aS;
+		gestFile = (GestFileInterface) getObjetRegistry("gestFile");
 	}
 	
 	/**
@@ -42,7 +44,7 @@ public class Client {
 		System.out.println("Lancement de la connexion");
 	      GestObjetInterface r = null;
 		try {
-			r = (GestObjetInterface) Naming.lookup("rmi://" + adresseServ+ ":" + port + "/gestObjet");
+			r = (GestObjetInterface) Naming.lookup("rmi://" + adresseServ+ ":" + port + "/gestObj");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -73,10 +75,9 @@ public class Client {
 	}
 	
 	public void downloadFichierRegistry(String nomFichier){
-		
-		GestFileInterface fileTest = (GestFileInterface) getObjetRegistry("gestFile");
+
 		try {
-			byte[] tab = fileTest.downloadFile(nomFichier);
+			byte[] tab = gestFile.downloadFile(nomFichier);
 			if(tab.length != 0){
 				try {
 				FileOutputStream fos = new FileOutputStream("data/"+nomFichier);
@@ -108,7 +109,7 @@ public class Client {
 		System.out.println("Lancement de la connexion");
 		GestFileInterface r = null;
 	      try {
-				r = (GestFileInterface) Naming.lookup("rmi://" + adresseServ+ ":" + port + "/gestFile");
+			
 				
 				File f = new File (chemin);
 				
@@ -131,12 +132,8 @@ public class Client {
 				String[] bits = chemin.split("/");
 				String nom = bits[bits.length-1];
 				System.out.println(buffer.length);
-				r.uploadFile(buffer, nom);
-			} catch (MalformedURLException e) {
-				e.printStackTrace();
+				gestFile.uploadFile(buffer, nom);
 			} catch (RemoteException e) {
-				e.printStackTrace();
-			} catch (NotBoundException e) {
 				e.printStackTrace();
 			}
 		    System.out.println("Objet renvoyé");
@@ -148,15 +145,8 @@ public class Client {
 	 */
 	public void supprimerFichier(String nomFichier){
 		try {
-			GestFileInterface gestFile = (GestFileInterface) Naming.lookup("rmi://" + adresseServ+ ":" + port + "/gestFile");
 			gestFile.supprFile(nomFichier);
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NotBoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

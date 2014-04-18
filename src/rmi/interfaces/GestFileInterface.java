@@ -1,4 +1,4 @@
-package rmi.serveur.coreserveur;
+package rmi.interfaces;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

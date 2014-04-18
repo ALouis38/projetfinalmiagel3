@@ -1,5 +1,6 @@
 package rmi.serveur;
 
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 

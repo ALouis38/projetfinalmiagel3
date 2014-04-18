@@ -1,4 +1,6 @@
-package rmi.serveur.modulesserveur.chat;
+package rmi.interfaces;
+
+import rmi.serveur.modulesserveur.chat.MessageChat;
 
 public interface GestMessageInterface {
 	
