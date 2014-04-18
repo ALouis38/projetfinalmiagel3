@@ -2,12 +2,14 @@ package rmi.serveur.modulesserveur.chat;
 
 import java.io.Serializable;
 
-public class Message implements Serializable{
+import rmi.serveur.coreserveur.Message;
+
+public class MessageChat extends Message{
 	
 	private String texte;
 	private String emetteur;
 	
-	public Message(String txt, String user){
+	public MessageChat(String txt, String user){
 		texte = txt;
 		emetteur = user;
 	}
