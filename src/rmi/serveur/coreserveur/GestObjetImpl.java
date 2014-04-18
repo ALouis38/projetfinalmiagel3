@@ -34,6 +34,7 @@ public class GestObjetImpl extends UnicastRemoteObject implements GestObjetInter
 	@Override
 	public void addObjet(Remote obj, String nom) throws RemoteException {
 		try {
+
 			Naming.rebind(nom, obj);
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block

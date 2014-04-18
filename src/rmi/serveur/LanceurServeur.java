@@ -17,7 +17,9 @@ public class LanceurServeur {
 			GestZipImpl zippeur;
 			try {
 				fileTest = new GestFileImpl();
+				
 				zippeur = new GestZipImpl();
+
 				serv.addGestionnaire(fileTest, "gestFile");
 				serv.addGestionnaire(zippeur, "gestZip");
 			} catch (RemoteException e) {

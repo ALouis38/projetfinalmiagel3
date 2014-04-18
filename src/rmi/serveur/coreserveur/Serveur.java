@@ -17,6 +17,7 @@ public class Serveur {
 	
 	private int port;
 	private GestObjetImpl gestObj;
+	private Registry reg;
 	/**
 	 * Constructeur du serveur
 	 * @param port Port de connexion
@@ -25,11 +26,12 @@ public class Serveur {
 	public Serveur(int port) throws UnknownHostException{
 		this.port = port;
 		try {
-			LocateRegistry.createRegistry(this.port);	
+			reg = LocateRegistry.createRegistry(this.port);	
 			
-			GestObjetImpl gestObj = new GestObjetImpl();
+			gestObj = new GestObjetImpl();
 			gestObj.addObjet(gestObj, "gestObj");
 			
+			System.out.println("Adresse:" + InetAddress.getLocalHost().getHostAddress() +"  Port:" + this.port);
 		    System.out.println("Serveur lancé");
 		  } catch (RemoteException e) {
 		    e.printStackTrace();
