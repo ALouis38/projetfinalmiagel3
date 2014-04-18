@@ -5,6 +5,7 @@ import java.rmi.RemoteException;
 
 import rmi.serveur.coreserveur.GestFileImpl;
 import rmi.serveur.coreserveur.Serveur;
+import rmi.serveur.modulesserveur.zip.GestZipImpl;
 
 public class LanceurServeur {
 
@@ -13,9 +14,12 @@ public class LanceurServeur {
 			Serveur serv = new Serveur(1099);
 			
 			GestFileImpl fileTest;
+			GestZipImpl zippeur;
 			try {
 				fileTest = new GestFileImpl();
+				zippeur = new GestZipImpl();
 				serv.addGestionnaire(fileTest, "gestFile");
+				serv.addGestionnaire(zippeur, "gestZip");
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			}

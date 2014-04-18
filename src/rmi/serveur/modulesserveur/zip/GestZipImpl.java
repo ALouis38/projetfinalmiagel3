@@ -1,4 +1,4 @@
-package rmi.serveur.modulesserveur;
+package rmi.serveur.modulesserveur.zip;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -9,20 +9,28 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.Enumeration;
 import java.util.zip.*;
 
-public class gestionZipImpl {
-	public static void main(String[] args) {
-		compression(args);
-		decompression("archive");
-	}
+public class GestZipImpl extends UnicastRemoteObject implements GestZipInterface {
 
-	public static void compression(String[] fichiers) {
+	public GestZipImpl() throws RemoteException{
+	}
+	/**
+	 * Créé une archive Zip dans le répertoire donné en paramètres, contenant
+	 * les fichiers dont la liste est également donnée en paramètre
+	 * 
+	 * @param fichiers
+	 * @param repertoire
+	 */
+	public void compression(String[] fichiers, String repertoire) {
 		byte[] data = null;
 		try {
 			// Création de la future archive
-			FileOutputStream archiveZip = new FileOutputStream("archive.zip");
+			FileOutputStream archiveZip = new FileOutputStream(repertoire
+					+ "/archive.zip");
 			// Création d'un buffer de sortie vers l'archive zip
 			BufferedOutputStream bSortie = new BufferedOutputStream(archiveZip);
 			// Création d'un flux d'ecriture Zip vers l'archive (via le buffer)
@@ -58,14 +66,21 @@ public class gestionZipImpl {
 		}
 	}
 
-	public static void decompression(String nomArchive) {
+	/**
+	 * Décompresse l'archive dont le nom (sans ".zip") est donné en paramètre
+	 * dans le repertoire également donné en paramètre
+	 * 
+	 * @param nomArchive
+	 * @param repertoire
+	 */
+	public void decompression(String nomArchive, String repertoire) {
 		try {
 			// Recuperation de l'archive
-			ZipFile fZippe = new ZipFile(nomArchive + ".zip");
+			ZipFile fZippe = new ZipFile(repertoire + "/" + nomArchive + ".zip");
 			// Création du répertoire de décompression
-			File repD = new File(nomArchive);
+			File repD = new File(repertoire + "/" + nomArchive);
 			if (!repD.exists()) {
-				new File(nomArchive).mkdir();
+				new File(repertoire + "/" + nomArchive).mkdir();
 			}
 			// Recupére toutes les entrees de l'archive
 			Enumeration zEntrees = fZippe.entries();
@@ -74,7 +89,7 @@ public class gestionZipImpl {
 				// Récuperation de l'entrée suivante
 				ZipEntry zEntree = (ZipEntry) zEntrees.nextElement();
 				// Création des flux
-				FileOutputStream fSortant = new FileOutputStream(nomArchive
+				FileOutputStream fSortant = new FileOutputStream(repertoire + "/" + nomArchive
 						+ "/" + zEntree.getName());
 				BufferedOutputStream bSortant = new BufferedOutputStream(
 						fSortant);

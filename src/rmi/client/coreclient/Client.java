@@ -20,8 +20,8 @@ import rmi.client.coreclient.GestObjetInterface;
  */
 public class Client {
 	
-	private int port;
-	private String adresseServ;
+	protected int port;
+	protected String adresseServ;
 	
 	/**
 	 * Constructeur du Client.
