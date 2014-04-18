@@ -14,17 +14,30 @@ import java.rmi.RemoteException;
 
 import rmi.client.coreclient.GestFileInterface;
 import rmi.client.coreclient.GestObjetInterface;
-
+/**
+ * Classe de base du client. Contient les méthodes manipulant les objets Remote côté client
+ *
+ */
 public class Client {
 	
 	private int port;
 	private String adresseServ;
 	
+	/**
+	 * Constructeur du Client.
+	 * @param p le port de connexion
+	 * @param aS l'adresse du serveur distant
+	 */
 	public Client(int p, String aS){
 		port = p;
 		adresseServ = aS;
 	}
 	
+	/**
+	 * Permet de récupére run objet Remote présent dans le registry, principalement les gesitonnaires de modules
+	 * @param nom nom de l'objet Remote à récupérer
+	 * @return lobjet Remote récupéré
+	 */
 	public Remote getObjetRegistry(String nom){
 		System.out.println("Lancement de la connexion");
 	      GestObjetInterface r = null;
@@ -49,6 +62,10 @@ public class Client {
 
 	}
 	
+	/**
+	 * Permet d'ajoute run objet Remote au registry
+	 * @param obj l'objet Remote à ajoute rau registry
+	 */
 	public void addObjetRegistry(Remote obj){
 		System.out.println("Lancement de la connexion");
 		
@@ -83,7 +100,10 @@ public class Client {
 		}
 	}
 	
-	
+	/**
+	 * Permet de placer un fichier sur le serveur, dans le dossier data/
+	 * @param chemin Chemin du fichier à uploadé côté client
+	 */
 	public void uploadFichierRegistry(String chemin){
 		System.out.println("Lancement de la connexion");
 		GestFileInterface r = null;
@@ -122,6 +142,10 @@ public class Client {
 		    System.out.println("Objet renvoyé");
 	}
 	
+	/**
+	 * Permet de supprimer un fichier présent sur le serveur dans le répertoire data/
+	 * @param nomFichier Nom du fichier à supprimer
+	 */
 	public void supprimerFichier(String nomFichier){
 		try {
 			GestFileInterface gestFile = (GestFileInterface) Naming.lookup("rmi://" + adresseServ+ ":" + port + "/gestFile");

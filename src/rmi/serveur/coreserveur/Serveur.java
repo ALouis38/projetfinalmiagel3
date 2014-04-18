@@ -16,20 +16,18 @@ import java.rmi.server.UnicastRemoteObject;
 public class Serveur {
 	
 	private int port;
+	private GestObjetImpl gestObj;
 	/**
-	 * Constructeur du serveur. Etablit 
-	 * @param port
+	 * Constructeur du serveur
+	 * @param port Port de connexion
 	 * @throws UnknownHostException
 	 */
 	public Serveur(int port) throws UnknownHostException{
 		this.port = port;
 		try {
-			LocateRegistry.createRegistry(this.port);
-				
-			GestFileImpl fileTest = new GestFileImpl();
+			LocateRegistry.createRegistry(this.port);	
+			
 			GestObjetImpl gestObj = new GestObjetImpl();
-		
-			gestObj.addObjet(fileTest, "gestFile");
 			gestObj.addObjet(gestObj, "gestObj");
 			
 		    System.out.println("Serveur lancé");
@@ -38,13 +36,12 @@ public class Serveur {
 		  } 
 	}
 	
-//	public void enregistrerObjetRegistry(String nom, Remote obj) throws RemoteException, MalformedURLException{
-//		Naming.rebind(nom, obj);
-//		try {
-//			System.out.println("Enregistrement de l'objet avec l'url : rmi://" + 
-//			InetAddress.getLocalHost().getHostAddress() +":"+ port + "/" + nom);
-//		} catch (UnknownHostException e) {
-//			e.printStackTrace();
-//		}
-//	} 
+	public void addGestionnaire(Remote gest, String nom){
+		try {
+			gestObj.addObjet(gest, nom);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
