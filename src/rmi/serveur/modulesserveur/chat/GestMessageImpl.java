@@ -14,7 +14,7 @@ public class GestMessageImpl extends UnicastRemoteObject implements GestMessageI
 	}
 
 	@Override
-	public void recupMessage(Utilisateur user, Message message) {
+	public void recupMessage(Message message) {
 		// TODO Auto-generated method stub
 		
 	}
