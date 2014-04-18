@@ -1,4 +1,4 @@
-package rmi.interfaces;
+package rmi.interfaces.modules.zip;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

@@ -1,4 +1,4 @@
-package rmi.interfaces;
+package rmi.interfaces.modules.chat;
 
 import java.rmi.Remote;
 

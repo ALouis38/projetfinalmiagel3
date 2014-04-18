@@ -12,8 +12,8 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-import rmi.interfaces.GestFileInterface;
-import rmi.interfaces.GestObjetInterface;
+import rmi.interfaces.core.GestFileInterface;
+import rmi.interfaces.core.GestObjetInterface;
 /**
  * Classe de base du client. Contient les méthodes manipulant les objets Remote côté client
  *

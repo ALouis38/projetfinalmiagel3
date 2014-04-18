@@ -14,7 +14,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Enumeration;
 import java.util.zip.*;
 
-import rmi.interfaces.GestZipInterface;
+import rmi.interfaces.modules.zip.GestZipInterface;
 
 public class GestZipImpl extends UnicastRemoteObject implements GestZipInterface {
 
