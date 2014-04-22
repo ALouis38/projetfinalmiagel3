@@ -1,4 +1,4 @@
-package rmi.serveur.modulesserveur.zip;
+package rmi.serveur.modules.zip;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

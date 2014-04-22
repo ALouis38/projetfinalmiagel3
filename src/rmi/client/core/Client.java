@@ -1,4 +1,4 @@
-package rmi.client.coreclient;
+package rmi.client.core;
 
 import java.io.BufferedInputStream;
 import java.io.File;

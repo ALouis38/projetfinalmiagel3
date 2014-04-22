@@ -4,10 +4,10 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 
-import rmi.serveur.coreserveur.GestFileImpl;
-import rmi.serveur.coreserveur.Serveur;
-import rmi.serveur.modulesserveur.chat.GestChatImpl;
-import rmi.serveur.modulesserveur.zip.GestZipImpl;
+import rmi.serveur.core.GestFileImpl;
+import rmi.serveur.core.Serveur;
+import rmi.serveur.modules.chat.GestChatImpl;
+import rmi.serveur.modules.zip.GestZipImpl;
 
 public class LanceurServeur {
 

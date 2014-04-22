@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.rmi.RemoteException;
 
-import rmi.client.coreclient.Client;
+import rmi.client.core.Client;
 import rmi.interfaces.modules.zip.GestZipInterface;
 
 public class Generateur {

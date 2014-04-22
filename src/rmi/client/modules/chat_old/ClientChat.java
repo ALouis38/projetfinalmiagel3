@@ -1,4 +1,4 @@
-package rmi.client.modulesclient.chat_old;
+package rmi.client.modules.chat_old;
 
 import chat.Client;
 

@@ -1,10 +1,10 @@
-package rmi.client.modulesclient.chat;
+package rmi.client.modules.chat;
 
 import java.util.ArrayList;
 
-import rmi.client.coreclient.Client;
+import rmi.client.core.Client;
 import rmi.interfaces.modules.chat.GestChatInterface;
-import rmi.serveur.modulesserveur.chat.MessageChat;
+import rmi.serveur.modules.chat.MessageChat;
 
 
 public class ClientChat extends Client {

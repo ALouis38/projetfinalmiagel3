@@ -4,7 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import rmi.serveur.modulesserveur.chat.MessageChat;
+import rmi.serveur.modules.chat.MessageChat;
 
 
 public interface GestChatInterface extends Remote {

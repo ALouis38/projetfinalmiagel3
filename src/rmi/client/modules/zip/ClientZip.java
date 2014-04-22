@@ -1,13 +1,13 @@
-package rmi.client.modulesclient.zip;
+package rmi.client.modules.zip;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-import rmi.client.coreclient.Client;
+import rmi.client.core.Client;
 import rmi.interfaces.modules.zip.GestZipInterface;
-import rmi.serveur.modulesserveur.zip.GestZipImpl;
+import rmi.serveur.modules.zip.GestZipImpl;
 
 public class ClientZip extends Client {
 

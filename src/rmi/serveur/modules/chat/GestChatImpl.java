@@ -1,4 +1,4 @@
-package rmi.serveur.modulesserveur.chat;
+package rmi.serveur.modules.chat;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;

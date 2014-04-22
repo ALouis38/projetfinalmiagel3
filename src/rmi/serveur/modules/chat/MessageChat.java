@@ -1,8 +1,8 @@
-package rmi.serveur.modulesserveur.chat;
+package rmi.serveur.modules.chat;
 
 import java.io.Serializable;
 
-import rmi.serveur.coreserveur.Message;
+import rmi.serveur.core.Message;
 
 public class MessageChat extends Message{
 	

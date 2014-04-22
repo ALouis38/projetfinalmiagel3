@@ -1,9 +1,9 @@
 package rmi.client;
 
-import rmi.client.coreclient.Client;
-import rmi.client.modulesclient.chat.ClientChat;
-import rmi.client.modulesclient.zip.ClientZip;
-import rmi.serveur.modulesserveur.chat.MessageChat;
+import rmi.client.core.Client;
+import rmi.client.modules.chat.ClientChat;
+import rmi.client.modules.zip.ClientZip;
+import rmi.serveur.modules.chat.MessageChat;
 
 
 public class LanceurClient {

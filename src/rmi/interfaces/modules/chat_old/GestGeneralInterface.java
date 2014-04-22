@@ -2,7 +2,7 @@ package rmi.interfaces.modules.chat_old;
 
 import java.rmi.Remote;
 
-import rmi.serveur.coreserveur.Message;
+import rmi.serveur.core.Message;
 
 public interface GestGeneralInterface extends Remote{
 

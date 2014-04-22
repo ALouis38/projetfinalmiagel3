@@ -1,4 +1,4 @@
-package rmi.serveur.coreserveur;
+package rmi.serveur.core;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
