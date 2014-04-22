@@ -178,7 +178,8 @@ public class Nexus extends JFrame {
 				int nbClient = Integer.parseInt(textFieldNbClient.getText());
 				
 				//appel de la méthode du controleur
-				g.generer(moduleSelect2, nomProjet, destination);
+				g.genererServeur(moduleSelect2, nomProjet, destination);
+				g.genererClients(moduleSelect2, nomProjet, destination, nbClient);
 				
 				//pop up de confirmation
 				JOptionPane d = new JOptionPane();

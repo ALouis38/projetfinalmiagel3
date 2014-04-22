@@ -11,13 +11,13 @@ public class EnsembleModule {
 		listeObjet = new ArrayList<Module>();
 		listeString = new ArrayList<String>();
 		
-		Module module1 = new Module();
-		listeObjet.add(module1);
-		listeString.add("module1");
+		Module moduleChat = new Module();
+		listeObjet.add(moduleChat);
+		listeString.add("chat");
 		
-		Module module2 = new Module();
-		listeObjet.add(module2);
-		listeString.add("module2");
+		Module moduleZip = new Module();
+		listeObjet.add(moduleZip);
+		listeString.add("zip");
 	}
 
 	public ArrayList<String> getListeString() {
