@@ -1,5 +1,6 @@
 package rmi.client.modules.chat;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import rmi.client.core.Client;
@@ -17,11 +18,22 @@ public class ClientChat extends Client {
 	}
 	
 	public void envoyerMessage(MessageChat message){
-		chatI.envoyerMessage(message);
+		try {
+			chatI.envoyerMessage(message);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<MessageChat> recevoirMessage(int indice){
-		return chatI.recevoirMessage(indice);
+		try {
+			return chatI.recevoirMessage(indice);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 }

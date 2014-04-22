@@ -9,7 +9,7 @@ import rmi.serveur.modules.chat.MessageChat;
 
 public interface GestChatInterface extends Remote {
 	
-	void envoyerMessage(MessageChat message);
-	ArrayList<MessageChat> recevoirMessage(int indice);
+	public void envoyerMessage(MessageChat message) throws RemoteException ;
+	public ArrayList<MessageChat> recevoirMessage(int indice) throws RemoteException ;
 	
 }

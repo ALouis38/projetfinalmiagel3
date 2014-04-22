@@ -9,9 +9,11 @@ import rmi.interfaces.modules.chat.GestChatInterface;
 public class GestChatImpl extends UnicastRemoteObject implements
 		GestChatInterface {
 	
-	ArrayList<MessageChat> messages = new ArrayList<MessageChat>();
+	ArrayList<MessageChat> messages;
 	
 	public GestChatImpl() throws RemoteException {
+		super();
+		ArrayList<MessageChat> messages = new ArrayList<MessageChat>();
 	}
 
 	@Override
