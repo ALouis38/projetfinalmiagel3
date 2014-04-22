@@ -40,7 +40,6 @@ import java.io.IOException;
 public class Nexus extends JFrame {
 	private JTextField textFieldNomProjet;
 	private JTextField textFieldDestination;
-	private JTextField textFieldNbClient;
 	
 	private Generateur g = new Generateur();
 	private String destination;
@@ -70,7 +69,7 @@ public class Nexus extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblNexusX = new JLabel("NEXUS X");
-		lblNexusX.setBounds(182, 0, 70, 15);
+		lblNexusX.setBounds(210, 12, 70, 15);
 		getContentPane().add(lblNexusX);
 		
 		JLabel lblNomDuProjet = new JLabel("Nom du projet:");
@@ -101,16 +100,6 @@ public class Nexus extends JFrame {
 		glue_1.setBounds(201, 71, 1, 1);
 		getContentPane().add(glue_1);
 		
-		JLabel lblNombreDeClient = new JLabel("Nombre de client:");
-		lblNombreDeClient.setForeground(Color.GRAY);
-		lblNombreDeClient.setBounds(12, 128, 125, 15);
-		getContentPane().add(lblNombreDeClient);
-		
-		textFieldNbClient = new JTextField();
-		textFieldNbClient.setBounds(138, 126, 142, 19);
-		getContentPane().add(textFieldNbClient);
-		textFieldNbClient.setColumns(10);
-		
 		
 		
 		JLabel lblKernel = new JLabel("Kernel");
@@ -118,7 +107,7 @@ public class Nexus extends JFrame {
 		getContentPane().add(lblKernel);
 		
 		JLabel lblModules = new JLabel("Modules");
-		lblModules.setBounds(12, 179, 70, 15);
+		lblModules.setBounds(12, 124, 70, 15);
 		getContentPane().add(lblModules);
 		
 		JButton btnParcourir = new JButton("New button");
@@ -142,7 +131,7 @@ public class Nexus extends JFrame {
 		getContentPane().add(btnParcourir);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 209, 374, 207);
+		scrollPane.setBounds(22, 151, 378, 265);
 		getContentPane().add(scrollPane);
 		
 		DefaultListModel listModel = new DefaultListModel();
@@ -175,11 +164,10 @@ public class Nexus extends JFrame {
 				
 				//recuperer les attributs String ou int
 				String nomProjet = textFieldNomProjet.getText();
-				int nbClient = Integer.parseInt(textFieldNbClient.getText());
 				
 				//appel de la méthode du controleur
 				g.genererServeur(moduleSelect2, nomProjet, destination);
-				g.genererClients(moduleSelect2, nomProjet, destination, nbClient);
+				g.genererClients(moduleSelect2, nomProjet, destination);
 				
 				//pop up de confirmation
 				JOptionPane d = new JOptionPane();
@@ -189,7 +177,7 @@ public class Nexus extends JFrame {
 				
 			}
 		});
-		btnValider.setBounds(381, 438, 84, 15);
+		btnValider.setBounds(409, 434, 84, 29);
 		getContentPane().add(btnValider);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -199,6 +187,11 @@ public class Nexus extends JFrame {
 		menuBar.add(mnFichier);
 		
 		JMenuItem mntmQuitter = new JMenuItem("Quitter");
+		mntmQuitter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		mnFichier.add(mntmQuitter);
 		
 		JMenu mnAide = new JMenu("Aide");
@@ -208,7 +201,7 @@ public class Nexus extends JFrame {
 		mntmManuelDaide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Configuratione conf = new Configuratione();
-				String cmd = "okular "+ conf.getHome() +"/grh.pdf";
+				String cmd = "okular "+ conf.getHome() +"/help.pdf";
 				Runtime runtime = Runtime.getRuntime();
 	            Process process = null;
 	            try {
