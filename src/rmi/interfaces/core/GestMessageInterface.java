@@ -1,10 +1,10 @@
 package rmi.interfaces.core;
 
-import rmi.serveur.modules.chat.MessageChat;
+import rmi.serveur.core.Message;
 
 public interface GestMessageInterface {
 	
-	public void recupMessage(MessageChat message);
-	public void renvoiMessage(MessageChat message);
+	public void recupMessage(Message message);
+	public void renvoiMessage(Message message);
 
 }
