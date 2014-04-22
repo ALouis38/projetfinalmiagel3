@@ -15,16 +15,9 @@ public class ClientZip extends Client {
 
 	public ClientZip(int p, String aS) {
 		super(p, aS);
-		try {
-			GestZipInterface gest = (GestZipInterface) Naming.lookup("rmi://"
-					+ this.adresseServ + ":" + this.port + "/gestZip");
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		} catch (NotBoundException e) {
-			e.printStackTrace();
-		}
+		//			 zipI = (GestZipInterface) Naming.lookup("rmi://"
+//					+ this.adresseServ + ":" + this.port + "/gestZip");
+		zipI = (GestZipInterface) getObjetRegistry("gestZip");
 	}
 	
 	public void compression(String[] fichiers, String repertoire){
