@@ -16,7 +16,7 @@ public class Generateur {
 	String chemin;
 	
 	public static void main(String[] args) {
-		String nm = "Caca";
+		String nm = "Chat";
 		String chemin = "src/rmi/";
 		Generateur g = new Generateur(nm, chemin);
 	}

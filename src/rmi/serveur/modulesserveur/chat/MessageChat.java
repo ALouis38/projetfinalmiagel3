@@ -9,6 +9,10 @@ public class MessageChat extends Message{
 	private String texte;
 	private String emetteur;
 	
+	public MessageChat(String txt){
+		texte = txt;
+	}
+	
 	public MessageChat(String txt, String user){
 		texte = txt;
 		emetteur = user;

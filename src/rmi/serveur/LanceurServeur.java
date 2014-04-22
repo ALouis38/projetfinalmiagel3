@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 
 import rmi.serveur.coreserveur.GestFileImpl;
 import rmi.serveur.coreserveur.Serveur;
+import rmi.serveur.modulesserveur.chat.GestChatImpl;
 import rmi.serveur.modulesserveur.zip.GestZipImpl;
 
 public class LanceurServeur {
@@ -16,13 +17,15 @@ public class LanceurServeur {
 			
 			GestFileImpl fileTest;
 			GestZipImpl zippeur;
+			GestChatImpl chat;
 			try {
 				fileTest = new GestFileImpl();
-				
 				zippeur = new GestZipImpl();
+				chat = new GestChatImpl();
 
 				serv.addGestionnaire(fileTest, "gestFile");
 				serv.addGestionnaire(zippeur, "gestZip");
+				serv.addGestionnaire(chat, "gestChat");
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			}

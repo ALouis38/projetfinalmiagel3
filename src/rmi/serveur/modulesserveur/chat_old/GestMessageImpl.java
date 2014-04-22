@@ -1,10 +1,11 @@
-package rmi.serveur.modulesserveur.chat;
+package rmi.serveur.modulesserveur.chat_old;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import rmi.interfaces.core.GestMessageInterface;
+import rmi.serveur.modulesserveur.chat.MessageChat;
 
 public class GestMessageImpl extends UnicastRemoteObject implements GestMessageInterface{
 
