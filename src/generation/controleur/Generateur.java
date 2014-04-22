@@ -111,6 +111,16 @@ public class Generateur {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//lanceur serveur
+		File lanceurSourceS = new File(config.getHome() + "/src/rmi/serveur/LanceurServeur.java");
+		File lanceurDestS = new File(pat +"/src/serveur/LanceurServeur.java");
+		try {
+			generation.controleur.Utils.copy(lanceurSourceS, lanceurDestS);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	
@@ -200,6 +210,16 @@ public class Generateur {
 			File dirDestBin = new File(pat +"/bin");
 			try {
 				generation.controleur.Utils.copy(dirSourceBin, dirDestBin);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			//lanceur client
+			File lanceurSourceC = new File(config.getHome() + "/src/rmi/client/LanceurClient.java");
+			File lanceurDestC = new File(pat +"/src/client/LanceurClient.java");
+			try {
+				generation.controleur.Utils.copy(lanceurSourceC, lanceurDestC);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
