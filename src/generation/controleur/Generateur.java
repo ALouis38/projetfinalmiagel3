@@ -118,13 +118,11 @@ public class Generateur {
 		return ens.getListeString();
 	}
 	
-	public void genererClients(ArrayList<String> listeModule, String nomProjet, String destination, int nbClient){
-		
-		for(int j = 1; j<= nbClient; j++){
-		
+	public void genererClients(ArrayList<String> listeModule, String nomProjet, String destination){
+
 			//dossier global Client
 			String deb = destination + "/" + nomProjet;
-			String pat = deb + "/" + nomProjet + "-client-"+j;
+			String pat = deb + "/" + nomProjet + "-client";
 			File dirServ = new File(pat);
 			dirServ.mkdir();
 			
@@ -206,8 +204,6 @@ public class Generateur {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
-		}
 		
 	}
 	
