@@ -47,7 +47,7 @@ public class Generateur {
 		dirI.mkdir();
 		
 		//dossier coreServeur
-		File dirSourceCoreS = new File(config.getHome() + "/src/rmi/serveur/coreserveur");
+		File dirSourceCoreS = new File(config.getHome() + "/src/rmi/serveur/core");
 		File dirDestCoreS = new File(path +"/serveur/core");
 		try {
 			generation.controleur.Utils.copy(dirSourceCoreS, dirDestCoreS);
@@ -72,7 +72,7 @@ public class Generateur {
 		
 		for(int i = 0; i<listeModule.size(); i++){
 			String module = listeModule.get(i);
-			File dirSourceModS = new File(config.getHome() + "/src/rmi/serveur/modulesserveur/"+module);
+			File dirSourceModS = new File(config.getHome() + "/src/rmi/serveur/modules/"+module);
 			File dirDestModS = new File(path + "/serveur/modules/"+module);
 			try {
 				generation.controleur.Utils.copy(dirSourceModS, dirDestModS);
@@ -140,7 +140,7 @@ public class Generateur {
 			dirI.mkdir();
 			
 			//dossier coreClient
-			File dirSourceCoreS = new File(config.getHome() + "/src/rmi/client/coreclient");
+			File dirSourceCoreS = new File(config.getHome() + "/src/rmi/client/core");
 			File dirDestCoreS = new File(path +"/client/core");
 			try {
 				generation.controleur.Utils.copy(dirSourceCoreS, dirDestCoreS);
@@ -165,7 +165,7 @@ public class Generateur {
 			
 			for(int i = 0; i<listeModule.size(); i++){
 				String module = listeModule.get(i);
-				File dirSourceModS = new File(config.getHome() + "/src/rmi/client/modulesclient/"+module);
+				File dirSourceModS = new File(config.getHome() + "/src/rmi/client/modules/"+module);
 				File dirDestModS = new File(path + "/client/modules/"+module);
 				try {
 					generation.controleur.Utils.copy(dirSourceModS, dirDestModS);
