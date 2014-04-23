@@ -75,7 +75,7 @@ public class Generateur {
 	
 	public void genererGestImpl(){
 		PrintWriter generateur;
-
+//
 	    try {
 	    	File dir = new File(chemin + "serveur/modules/" + nm);
 			dir.mkdir();
@@ -101,4 +101,5 @@ public class Generateur {
 	private void ajouterFonction(String retour, String nom){
 		
 	}
+	
 }
