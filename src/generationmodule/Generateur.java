@@ -33,7 +33,7 @@ public class Generateur {
 		PrintWriter generateur;
 
 	    try {
-	    	File dir = new File(chemin + "client/modulesclient/" + nm);
+	    	File dir = new File(chemin + "client/modules/" + nm);
 			dir.mkdir();
 			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"client/modulesclient/"+nm+"/Client"+nm+".java")));
 			generateur.println("package rmi.client.modulesclient."+nm+";");
@@ -77,7 +77,7 @@ public class Generateur {
 		PrintWriter generateur;
 
 	    try {
-	    	File dir = new File(chemin + "serveur/modulesserveur/" + nm);
+	    	File dir = new File(chemin + "serveur/modules/" + nm);
 			dir.mkdir();
 			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"serveur/modulesserveur/"+nm+"/Gest"+nm+"Impl.java")));
 			generateur.println("package rmi.serveur.modulesserveur."+nm+";");
@@ -96,5 +96,9 @@ public class Generateur {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}   
+	}
+	
+	private void ajouterFonction(String retour, String nom){
+		
 	}
 }

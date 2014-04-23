@@ -7,7 +7,7 @@ public class Configuratione {
 	//MODIFIER VOS CONFIG ICI
 	//==========================
 	public Configuratione(){
-		this.home = "/home/v/vidalle/git/projetfinalmiagel3";
+		this.home = "/home/a/amorel/git/projetfinalmiagel3";
 	}
 	//===========================
 
