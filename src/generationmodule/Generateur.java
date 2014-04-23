@@ -35,7 +35,7 @@ public class Generateur {
 	    try {
 	    	File dir = new File(chemin + "client/modules/" + nm);
 			dir.mkdir();
-			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"client/modulesclient/"+nm+"/Client"+nm+".java")));
+			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"client/modules/"+nm+"/Client"+nm+".java")));
 			generateur.println("package rmi.client.modules."+nm+";");
 			generateur.println("import rmi.client.core.Client;");
 			generateur.println("import rmi.interfaces.modules."+nm+".Gest"+nm+"Interface;");
@@ -79,7 +79,7 @@ public class Generateur {
 	    try {
 	    	File dir = new File(chemin + "serveur/modules/" + nm);
 			dir.mkdir();
-			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"serveur/modulesserveur/"+nm+"/Gest"+nm+"Impl.java")));
+			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"serveur/modules/"+nm+"/Gest"+nm+"Impl.java")));
 			generateur.println("package rmi.serveur.modules."+nm+";");
 			generateur.println("import java.rmi.RemoteException;");
 			generateur.println("import java.rmi.server.UnicastRemoteObject;");
