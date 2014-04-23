@@ -16,9 +16,11 @@ public class Generateur {
 	String chemin;
 	
 	public static void main(String[] args) {
-		String nm = "Chat";
+		String nm = "Packtest";
 		String chemin = "src/rmi/";
 		Generateur g = new Generateur(nm, chemin);
+		g.ajouterFonction("public float nbCaca(int pipi)", "float");
+		g.fermerLesFichiers();
 	}
 	
 	public Generateur(String nm, String chemin){
@@ -64,8 +66,6 @@ public class Generateur {
 			generateur.println("import java.rmi.Remote;");
 			generateur.println("import java.rmi.RemoteException;");
 			generateur.println("public interface Gest"+nm+"Interface extends Remote {");
-			// Les fonctions
-			generateur.println("}");
 		    generateur.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -89,7 +89,6 @@ public class Generateur {
 			generateur.println("\tpublic Gest"+nm+"Impl() throws RemoteException {");
 			generateur.println("\t\tsuper();");
 			generateur.println("\t}");
-			generateur.println("}");
 			// Les fonctions
 		    generateur.close();
 		} catch (IOException e) {
@@ -98,11 +97,47 @@ public class Generateur {
 		}   
 	}
 	
-	private void ajouterFonction(String retour, String nom){
-		
+	public void ajouterFonction(String signature, String retour){
+		PrintWriter generateur;
+			    try {
+					generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"serveur/modules/"+nm+"/Gest"+nm+"Impl.java", true)));
+					generateur.println("\t\t"+signature+" {");
+					generateur.println("\t\t\t//TODO : Ecrire le corps de la méthode ici");
+					if (retour.equals("objet")) {
+						generateur.println("\t\t\treturn null;");
+					}
+					else if (retour.equals("boolean")) {
+						generateur.println("\t\t\treturn false;");
+					}
+					else if (retour.equals("void")) {
+						generateur.println("\t\t\t");
+					}
+					else {
+						generateur.println("\t\t\treturn 0;");
+					}
+					generateur.println("\t\t}");
+				    generateur.close();
+				    generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"interfaces/modules/"+nm+"/Gest"+nm+"Interface.java", true)));
+				    generateur.println("\t\t"+signature+" throws RemoteException ;");
+				    generateur.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}   
 	}
 	
 	public void fermerLesFichiers(){
-		
+		PrintWriter generateur;
+		    try {
+				generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"serveur/modules/"+nm+"/Gest"+nm+"Impl.java", true)));
+				generateur.println("}");
+			    generateur.close();
+			    generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"interfaces/modules/"+nm+"/Gest"+nm+"Interface.java", true)));
+			    generateur.println("}");
+			    generateur.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}   
 	}
 }
