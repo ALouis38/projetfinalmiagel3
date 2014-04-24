@@ -29,6 +29,7 @@ public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtil
 	@Override
 	public void removeUtilisateur(String pseudo) {
 		// TODO Auto-generated method stub
+		//
 		listeUtilisateurs.remove(pseudo);
 	}
 }
