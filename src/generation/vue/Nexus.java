@@ -44,51 +44,33 @@ public class Nexus extends JFrame {
 	private Generateur g = new Generateur();
 	private String destination;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Nexus frame = new Nexus();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
 	public Nexus() {
+		setTitle("Nexus - Generation de projet");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 507, 521);
 		getContentPane().setLayout(null);
 		
-		JLabel lblNexusX = new JLabel("NEXUS X");
-		lblNexusX.setBounds(210, 12, 70, 15);
-		getContentPane().add(lblNexusX);
-		
 		JLabel lblNomDuProjet = new JLabel("Nom du projet:");
 		lblNomDuProjet.setForeground(Color.GRAY);
-		lblNomDuProjet.setBounds(12, 71, 105, 15);
+		lblNomDuProjet.setBounds(12, 42, 105, 15);
 		getContentPane().add(lblNomDuProjet);
 		
 		textFieldNomProjet = new JTextField();
-		textFieldNomProjet.setBounds(120, 67, 160, 19);
+		textFieldNomProjet.setBounds(135, 40, 160, 19);
 		getContentPane().add(textFieldNomProjet);
 		textFieldNomProjet.setColumns(10);
 		
-		JLabel lblPathSave = new JLabel("Path Save:");
+		JLabel lblPathSave = new JLabel("Destination : ");
 		lblPathSave.setForeground(Color.GRAY);
-		lblPathSave.setBounds(12, 97, 105, 15);
+		lblPathSave.setBounds(12, 69, 105, 15);
 		getContentPane().add(lblPathSave);
 		
 		textFieldDestination = new JTextField();
-		textFieldDestination.setBounds(120, 95, 160, 19);
+		textFieldDestination.setBounds(135, 67, 160, 19);
 		getContentPane().add(textFieldDestination);
 		textFieldDestination.setColumns(10);
 		
@@ -102,12 +84,12 @@ public class Nexus extends JFrame {
 		
 		
 		
-		JLabel lblKernel = new JLabel("Kernel");
-		lblKernel.setBounds(12, 44, 51, 15);
+		JLabel lblKernel = new JLabel("Core");
+		lblKernel.setBounds(12, 12, 51, 15);
 		getContentPane().add(lblKernel);
 		
 		JLabel lblModules = new JLabel("Modules");
-		lblModules.setBounds(12, 124, 70, 15);
+		lblModules.setBounds(12, 98, 70, 15);
 		getContentPane().add(lblModules);
 		
 		JButton btnParcourir = new JButton("New button");
@@ -127,11 +109,11 @@ public class Nexus extends JFrame {
 			    }
 			}
 		});
-		btnParcourir.setBounds(292, 97, 19, 15);
+		btnParcourir.setBounds(305, 69, 19, 15);
 		getContentPane().add(btnParcourir);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 151, 378, 265);
+		scrollPane.setBounds(22, 125, 378, 291);
 		getContentPane().add(scrollPane);
 		
 		DefaultListModel listModel = new DefaultListModel();
@@ -173,8 +155,9 @@ public class Nexus extends JFrame {
 				JOptionPane d = new JOptionPane();
 				Component laFrame = null;
 				int messageType = 0;
-				d.showMessageDialog(laFrame, "Le projet a bien été généré !","Confirmation", messageType);
-				
+				int optionType = 0;
+				d.showMessageDialog(laFrame, "Le projet a bien été généré !", "Confirmation", messageType);
+				dispose();
 			}
 		});
 		btnValider.setBounds(409, 434, 84, 29);
