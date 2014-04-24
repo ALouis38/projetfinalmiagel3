@@ -18,7 +18,12 @@ public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtil
 	
 	@Override
 	public void addUtilisateur(String pseudo, String ip) {
-		listeUtilisateurs.put(pseudo, ip);
+		if(listeUtilisateurs.containsKey(pseudo)){
+			System.out.println("Pseudo deja utilisé!");
+		}
+		else{
+			listeUtilisateurs.put(pseudo, ip);
+		}
 	}
 
 	@Override
