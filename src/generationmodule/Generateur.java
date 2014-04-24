@@ -15,13 +15,13 @@ public class Generateur {
 	String nm;
 	String chemin;
 	
-	public static void main(String[] args) {
-		String nm = "Packtest";
-		String chemin = "src/rmi/";
-		Generateur g = new Generateur(nm, chemin);
-		g.ajouterFonction("public float nbCaca(int pipi)", "float");
-		g.fermerLesFichiers();
-	}
+//	public static void main(String[] args) {
+//		String nm = "Packtest";
+//		String chemin = "src/rmi/";
+//		Generateur g = new Generateur(nm, chemin);
+//		g.ajouterFonction("public float nbCaca(int pipi)", "float");
+//		g.fermerLesFichiers();
+//	}
 	
 	public Generateur(String nm, String chemin){
 		this.nm = nm;
