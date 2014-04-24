@@ -2,6 +2,7 @@ package generationmodule;
 
 import java.awt.EventQueue;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -27,7 +28,9 @@ public class VuePrincipale {
 	private JTextField textFieldSignature;
 	private Generateur gen;
 
-	
+	public static void main(String[] args) {
+		VuePrincipale v = new VuePrincipale();
+	}
 
 	public JFrame getFrmProbeGnrateur() {
 		return frmProbeGnrateur;
@@ -69,63 +72,114 @@ public class VuePrincipale {
 		textFieldChemin.setColumns(10);
 		
 		JSeparator separator = new JSeparator();
-		separator.setBounds(12, 138, 424, 2);
+		separator.setBounds(12, 168, 424, 2);
 		frmProbeGnrateur.getContentPane().add(separator);
 		
-		JButton btnGnrer = new JButton("Générer");
+		final JButton btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmProbeGnrateur.dispose();
+			}
+		});	
+		
+		final JButton btnTerminer = new JButton("Terminer");
+		btnTerminer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gen.fermerLesFichiers();
+				frmProbeGnrateur.dispose();
+			}
+		});
+		btnTerminer.setEnabled(false);
+		btnTerminer.setBounds(319, 281, 117, 25);
+		frmProbeGnrateur.getContentPane().add(btnTerminer);
+		
+		final JButton btnParcourir = new JButton("...");
+		btnParcourir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String destin;
+				JFileChooser chooser = new JFileChooser();
+				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				int returnVal = chooser.showOpenDialog(frmProbeGnrateur);
+			    if(returnVal == JFileChooser.APPROVE_OPTION) {
+			    	destin = chooser.getSelectedFile().getAbsoluteFile().toString();
+			    	textFieldChemin.setText(destin);
+			}
+		}});
+		btnParcourir.setBounds(293, 46, 28, 25);
+		frmProbeGnrateur.getContentPane().add(btnParcourir);
+		
+		final JComboBox comboBoxRetour = new JComboBox();
+		comboBoxRetour.setEditable(true);
+		comboBoxRetour.setEnabled(false);
+		comboBoxRetour.setBounds(22, 248, 158, 24);
+		comboBoxRetour.addItem("int");
+		comboBoxRetour.addItem("float");
+		comboBoxRetour.addItem("double");
+		comboBoxRetour.addItem("char");
+		comboBoxRetour.addItem("byte");
+		comboBoxRetour.addItem("short");
+		comboBoxRetour.addItem("long");
+		comboBoxRetour.addItem("boolean");
+		comboBoxRetour.addItem("void");
+		frmProbeGnrateur.getContentPane().add(comboBoxRetour);
+		
+		final JButton btnAjouter = new JButton("Ajouter");
+		btnAjouter.setEnabled(false);
+		btnAjouter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				gen.ajouterFonction(textFieldSignature.getText(), (String) comboBoxRetour.getSelectedItem());
+				textFieldSignature.setText("");
+				comboBoxRetour.setSelectedIndex(0);
+			}
+		});
+		btnAjouter.setBounds(190, 282, 117, 25);
+		frmProbeGnrateur.getContentPane().add(btnAjouter);
+		
+		textFieldSignature = new JTextField();
+		textFieldSignature.setEditable(false);
+		textFieldSignature.setBounds(190, 250, 246, 19);
+		frmProbeGnrateur.getContentPane().add(textFieldSignature);
+		textFieldSignature.setColumns(10);
+		
+		final JButton btnGnrer = new JButton("Générer");
 		btnGnrer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				gen = new Generateur(textFieldNm.getText(), textFieldChemin.getText());
 				textFieldChemin.setEditable(false);
 				textFieldNm.setEditable(false);
-				//btnGnrer.setEnabled(false);
+				btnGnrer.setEnabled(false);
+				btnAnnuler.setEnabled(false);
+				btnTerminer.setEnabled(true);
+				btnParcourir.setEnabled(false);
+				btnAjouter.setEnabled(true);
+				textFieldSignature.setEditable(true);
+				textFieldNm.setEditable(false);
+				textFieldChemin.setEditable(false);
+				comboBoxRetour.setEnabled(true);
 			}
 		});
 		btnGnrer.setBounds(319, 115, 117, 25);
 		frmProbeGnrateur.getContentPane().add(btnGnrer);
 		
-		JButton btnAnnuler = new JButton("Annuler");
-		btnAnnuler.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frmProbeGnrateur.dispose();
-			}
-		});
 		btnAnnuler.setBounds(190, 115, 117, 25);
 		frmProbeGnrateur.getContentPane().add(btnAnnuler);
 		
 		JLabel lblAjouterDesFonctions = new JLabel("Ajouter des fonctions");
-		lblAjouterDesFonctions.setBounds(22, 166, 160, 15);
+		lblAjouterDesFonctions.setBounds(20, 194, 160, 15);
 		frmProbeGnrateur.getContentPane().add(lblAjouterDesFonctions);
 		
-		JLabel lblSignatureDeLa = new JLabel("Signature de la fonciton (ex : public void exemple(int ex) )");
-		lblSignatureDeLa.setBounds(22, 193, 414, 15);
+		JLabel lblSignatureDeLa = new JLabel("Signature de la fonction");
+		lblSignatureDeLa.setBounds(192, 223, 186, 15);
 		frmProbeGnrateur.getContentPane().add(lblSignatureDeLa);
 		
-		textFieldSignature = new JTextField();
-		textFieldSignature.setBounds(22, 220, 414, 19);
-		frmProbeGnrateur.getContentPane().add(textFieldSignature);
-		textFieldSignature.setColumns(10);
-		
 		JLabel lblTypeDeRetour = new JLabel("Type de retour");
-		lblTypeDeRetour.setBounds(22, 251, 109, 15);
+		lblTypeDeRetour.setBounds(22, 221, 109, 15);
 		frmProbeGnrateur.getContentPane().add(lblTypeDeRetour);
-		
-		JComboBox comboBoxRetour = new JComboBox();
-		comboBoxRetour.setBounds(149, 246, 158, 24);
-		frmProbeGnrateur.getContentPane().add(comboBoxRetour);
-		
-		JButton btnTerminer = new JButton("Terminer");
-		btnTerminer.setBounds(319, 281, 117, 25);
-		frmProbeGnrateur.getContentPane().add(btnTerminer);
-		
-		JButton btnAjouter = new JButton("Ajouter");
-		btnAjouter.setBounds(190, 282, 117, 25);
-		frmProbeGnrateur.getContentPane().add(btnAjouter);
 		
 		JLabel lblCrationDuModule = new JLabel("Création du module");
 		lblCrationDuModule.setBounds(22, 26, 139, 15);
 		frmProbeGnrateur.getContentPane().add(lblCrationDuModule);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		frmProbeGnrateur.setJMenuBar(menuBar);
 		
@@ -159,5 +213,7 @@ public class VuePrincipale {
 			}
 		});
 		mnAide.add(mntmManuelDaide);
+		
+		frmProbeGnrateur.setVisible(true);
 	}
 }

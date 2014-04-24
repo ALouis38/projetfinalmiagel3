@@ -15,7 +15,6 @@ public class Generateur {
 	
 	String nm;
 	String chemin;
-	//fh
 	
 //	public static void main(String[] args) {
 //		String nm = "Packtest";
@@ -27,7 +26,7 @@ public class Generateur {
 	
 	public Generateur(String nm, String chemin){
 		this.nm = nm;
-		this.chemin = chemin;
+		this.chemin = chemin+"/";
 		genererClient();
 		genererGestInterface();
 		genererGestImpl();
@@ -103,7 +102,7 @@ public class Generateur {
 		PrintWriter generateur;
 			    try {
 					generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"serveur/modules/"+nm+"/Gest"+nm+"Impl.java", true)));
-					generateur.println("\t\t"+signature+" {");
+					generateur.println("\t\tpublic "+retour+" "+signature+" {");
 					generateur.println("\t\t\t//TODO : Ecrire le corps de la méthode ici");
 					if (retour.equals("objet")) {
 						generateur.println("\t\t\treturn null;");
@@ -120,7 +119,7 @@ public class Generateur {
 					generateur.println("\t\t}");
 				    generateur.close();
 				    generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"interfaces/modules/"+nm+"/Gest"+nm+"Interface.java", true)));
-				    generateur.println("\t\t"+signature+" throws RemoteException ;");
+				    generateur.println("\t\tpublic "+retour+" "+signature+" throws RemoteException ;");
 				    generateur.close();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
