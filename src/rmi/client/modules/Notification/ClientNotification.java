@@ -6,5 +6,6 @@ public class ClientNotification extends Client {
 	public ClientNotification(int p, String aS) {
 		super(p, aS);
 		gestI = (GestNotificationInterface) getObjetRegistry("gestNotification");
+		//prout
 	}
 }
