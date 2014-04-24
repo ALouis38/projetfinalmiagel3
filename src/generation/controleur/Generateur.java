@@ -47,7 +47,7 @@ public class Generateur {
 		dirI.mkdir();
 		
 		//dossier coreServeur
-		File dirSourceCoreS = new File(config.getHome() + "/src/rmi/serveur/core");
+		File dirSourceCoreS = new File(config.getHome() + "/src/serveur/core");
 		File dirDestCoreS = new File(path +"/serveur/core");
 		try {
 			generation.controleur.Utils.copy(dirSourceCoreS, dirDestCoreS);
@@ -57,7 +57,7 @@ public class Generateur {
 		}
 		
 		//dossier coreInterface
-		File dirSourceCoreI = new File(config.getHome() + "/src/rmi/interfaces/core");
+		File dirSourceCoreI = new File(config.getHome() + "/src/interfaces/core");
 		File dirDestCoreI = new File(path +"/interfaces/core");
 		try {
 			generation.controleur.Utils.copy(dirSourceCoreI, dirDestCoreI);
@@ -72,7 +72,7 @@ public class Generateur {
 		
 		for(int i = 0; i<listeModule.size(); i++){
 			String module = listeModule.get(i);
-			File dirSourceModS = new File(config.getHome() + "/src/rmi/serveur/modules/"+module);
+			File dirSourceModS = new File(config.getHome() + "/src/serveur/modules/"+module);
 			File dirDestModS = new File(path + "/serveur/modules/"+module);
 			try {
 				generation.controleur.Utils.copy(dirSourceModS, dirDestModS);
@@ -88,7 +88,7 @@ public class Generateur {
 		
 		for(int i = 0; i<listeModule.size(); i++){
 			String module = listeModule.get(i);
-			File dirSourceModI = new File(config.getHome() + "/src/rmi/interfaces/modules/"+module);
+			File dirSourceModI = new File(config.getHome() + "/src/interfaces/modules/"+module);
 			File dirDestModI = new File(path + "/interfaces/modules/"+module);
 			try {
 				generation.controleur.Utils.copy(dirSourceModI, dirDestModI);
@@ -113,7 +113,7 @@ public class Generateur {
 		}
 		
 		//lanceur serveur
-		File lanceurSourceS = new File(config.getHome() + "/src/rmi/serveur/LanceurServeur.java");
+		File lanceurSourceS = new File(config.getHome() + "/src/serveur/LanceurServeur.java");
 		File lanceurDestS = new File(pat +"/src/serveur/LanceurServeur.java");
 		try {
 			generation.controleur.Utils.copy(lanceurSourceS, lanceurDestS);
@@ -150,7 +150,7 @@ public class Generateur {
 			dirI.mkdir();
 			
 			//dossier coreClient
-			File dirSourceCoreS = new File(config.getHome() + "/src/rmi/client/core");
+			File dirSourceCoreS = new File(config.getHome() + "/src/client/core");
 			File dirDestCoreS = new File(path +"/client/core");
 			try {
 				generation.controleur.Utils.copy(dirSourceCoreS, dirDestCoreS);
@@ -160,7 +160,7 @@ public class Generateur {
 			}
 			
 			//dossier coreInterface
-			File dirSourceCoreI = new File(config.getHome() + "/src/rmi/interfaces/core");
+			File dirSourceCoreI = new File(config.getHome() + "/src/interfaces/core");
 			File dirDestCoreI = new File(path +"/interfaces/core");
 			try {
 				generation.controleur.Utils.copy(dirSourceCoreI, dirDestCoreI);
@@ -175,7 +175,7 @@ public class Generateur {
 			
 			for(int i = 0; i<listeModule.size(); i++){
 				String module = listeModule.get(i);
-				File dirSourceModS = new File(config.getHome() + "/src/rmi/client/modules/"+module);
+				File dirSourceModS = new File(config.getHome() + "/src/client/modules/"+module);
 				File dirDestModS = new File(path + "/client/modules/"+module);
 				try {
 					generation.controleur.Utils.copy(dirSourceModS, dirDestModS);
@@ -191,7 +191,7 @@ public class Generateur {
 			
 			for(int i = 0; i<listeModule.size(); i++){
 				String module = listeModule.get(i);
-				File dirSourceModI = new File(config.getHome() + "/src/rmi/interfaces/modules/"+module);
+				File dirSourceModI = new File(config.getHome() + "/src/interfaces/modules/"+module);
 				File dirDestModI = new File(path + "/interfaces/modules/"+module);
 				try {
 					generation.controleur.Utils.copy(dirSourceModI, dirDestModI);
@@ -216,7 +216,7 @@ public class Generateur {
 			}
 			
 			//lanceur client
-			File lanceurSourceC = new File(config.getHome() + "/src/rmi/client/LanceurClient.java");
+			File lanceurSourceC = new File(config.getHome() + "/src/client/LanceurClient.java");
 			File lanceurDestC = new File(pat +"/src/client/LanceurClient.java");
 			try {
 				generation.controleur.Utils.copy(lanceurSourceC, lanceurDestC);

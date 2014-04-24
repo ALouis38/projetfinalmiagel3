@@ -11,6 +11,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
 
 import rmi.interfaces.core.GestFileInterface;
 import rmi.interfaces.core.GestObjetInterface;
@@ -33,6 +34,18 @@ public class Client {
 		port = p;
 		adresseServ = aS;
 		gestFile = (GestFileInterface) getObjetRegistry("gestFile");
+		
+		
+		try {
+			LocateRegistry.createRegistry(2000);
+			
+			
+			
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		
 	}
 	
 	/**
