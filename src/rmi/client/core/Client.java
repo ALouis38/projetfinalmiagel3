@@ -97,7 +97,7 @@ public class Client {
 	}
 	
 	/**
-	 * Permet d'ajoute run objet Remote au registry
+	 * Permet d'ajouter un objet Remote au registry
 	 * @param obj l'objet Remote à ajoute rau registry
 	 */
 	public void addObjetRegistry(Remote obj){
