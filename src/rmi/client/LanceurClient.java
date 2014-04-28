@@ -9,8 +9,8 @@ import rmi.messages.MessageChat;
 public class LanceurClient {
 
 	public static void main(String[] args) {
-		Client c = new Client(1099,"82.225.46.137");
-		ClientUtilisateur cU = new ClientUtilisateur(1099, "82.225.46.137", "BITE");
+		Client c = new Client(1099,"25.82.116.237");
+		ClientUtilisateur cU = new ClientUtilisateur(1099, "25.82.116.237", "BITE");
 		c.downloadFichierRegistry("caca.txt");
 
 	}

@@ -38,34 +38,7 @@ public class Client {
 		port = p;
 		adresseServ = aS;
 		gestFile = (GestFileInterface) getObjetRegistry("gestFile");
-		GestObjetImpl gestObj;
-		try {
-			gestObj = new GestObjetImpl();
-		} catch (RemoteException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		
-		try {
-			LocateRegistry.createRegistry(2000);
-			GestNotificationImpl notif = new GestNotificationImpl();
-			gestObj = new GestObjetImpl();
-			try {
-				gestObj.addObjet(gestObj, "rmi://"+InetAddress.getLocalHost().getHostAddress()+":2000/"+"gestObj");
-			} catch (UnknownHostException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-		
-		
-		
-		
+	
 	}
 	
 	/**
