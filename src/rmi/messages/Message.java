@@ -10,6 +10,22 @@ public class Message implements Serializable{
 		this.expediteur =exp;
 		this.texte = txt;
 	}
+
+	public String getExpediteur() {
+		return expediteur;
+	}
+
+	public void setExpediteur(String expediteur) {
+		this.expediteur = expediteur;
+	}
+
+	public String getTexte() {
+		return texte;
+	}
+
+	public void setTexte(String texte) {
+		this.texte = texte;
+	}
 	
 
 }
