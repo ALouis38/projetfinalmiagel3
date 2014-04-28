@@ -19,6 +19,7 @@ public class GestNotificationImpl extends UnicastRemoteObject implements GestNot
 	public String recupNotif(String notif,String type) {
 		if(type.equals("message")){
 			//TODO gestion message
+			System.out.println("Message:" + notif);
 		}
 		else if(type.equals("error")){
 			JOptionPane.showMessageDialog(new Frame(),

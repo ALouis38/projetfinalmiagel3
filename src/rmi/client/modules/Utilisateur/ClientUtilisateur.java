@@ -7,9 +7,10 @@ import rmi.client.core.Client;
 import rmi.interfaces.modules.Utilisateur.GestUtilisateurInterface;
 public class ClientUtilisateur extends Client {
 	GestUtilisateurInterface gestI;
-	public ClientUtilisateur(int p, String aS) {
+	public ClientUtilisateur(int p, String aS, String pseudo) {
 		super(p, aS);
 		gestI = (GestUtilisateurInterface) getObjetRegistry("gestUtilisateur");
+		ajouterUtilisateur(pseudo);
 		
 	}
 	

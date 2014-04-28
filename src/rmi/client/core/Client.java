@@ -58,12 +58,13 @@ public class Client {
 				e.printStackTrace();
 			}
 			
-			
-			
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		
+		
+		
 		
 	}
 	
@@ -94,16 +95,6 @@ public class Client {
 			return null;
 		}
 
-	}
-	
-	/**
-	 * Permet d'ajouter un objet Remote au registry
-	 * @param obj l'objet Remote à ajoute rau registry
-	 */
-	public void addObjetRegistry(Remote obj){
-		System.out.println("Lancement de la connexion");
-		
-	    System.out.println("Objet envoyé");
 	}
 	
 	public void downloadFichierRegistry(String nomFichier){
