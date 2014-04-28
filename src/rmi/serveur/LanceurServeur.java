@@ -13,7 +13,7 @@ public class LanceurServeur {
 
 	public static void main(String[] args) {
 		try {
-			Serveur serv = new Serveur(1099);
+			Serveur serv = new Serveur(1099,false);
 			
 			GestFileImpl fileTest;
 			GestChatImpl chat;
