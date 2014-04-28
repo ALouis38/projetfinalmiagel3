@@ -7,6 +7,7 @@ import java.rmi.server.UnicastRemoteObject;
 import javax.swing.JOptionPane;
 
 import rmi.interfaces.modules.Notification.GestNotificationInterface;
+import rmi.messages.Message;
 
 public class GestNotificationImpl extends UnicastRemoteObject implements GestNotificationInterface {
 
@@ -16,7 +17,7 @@ public class GestNotificationImpl extends UnicastRemoteObject implements GestNot
 	}
 
 	@Override
-	public String recupNotif(String notif,String type) {
+	public void recupNotif(Message notif,String type) {
 		if(type.equals("message")){
 			//TODO gestion message
 			System.out.println("Message:" + notif);
@@ -27,7 +28,6 @@ public class GestNotificationImpl extends UnicastRemoteObject implements GestNot
 				    "Error",
 				    JOptionPane.ERROR_MESSAGE);
 		}
-		return notif;
 	}
 
 }

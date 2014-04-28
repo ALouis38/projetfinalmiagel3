@@ -10,7 +10,7 @@ public class ClientUtilisateur extends Client {
 	public ClientUtilisateur(int p, String aS, String pseudo) {
 		super(p, aS);
 		gestI = (GestUtilisateurInterface) getObjetRegistry("gestUtilisateur");
-		ajouterUtilisateur(pseudo);
+//		ajouterUtilisateur(pseudo);
 		
 	}
 	
