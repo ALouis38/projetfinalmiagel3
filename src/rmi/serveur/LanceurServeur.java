@@ -1,5 +1,6 @@
 package rmi.serveur;
 
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.RemoteException;
@@ -13,7 +14,7 @@ public class LanceurServeur {
 
 	public static void main(String[] args) {
 		try {
-			Serveur serv = new Serveur(1099,false);
+			Serveur serv = new Serveur(1099,true);
 			
 			GestFileImpl fileTest;
 			GestChatImpl chat;

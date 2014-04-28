@@ -33,6 +33,7 @@ public class Serveur {
 	 */
 	public Serveur(int port, boolean local) throws UnknownHostException{
 		this.port = port;
+		System.setProperty("java.security.policy", "src/java.policy");
 		
 		if (!local) {
 			
@@ -53,6 +54,7 @@ public class Serveur {
 			}
 		}
 		this.adresse = InetAddress.getLocalHost().getHostAddress();
+
 		
 		try {
 			LocateRegistry.createRegistry(this.port);	
