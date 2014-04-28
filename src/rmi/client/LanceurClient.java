@@ -3,7 +3,7 @@ package rmi.client;
 import rmi.client.core.Client;
 import rmi.client.modules.Utilisateur.ClientUtilisateur;
 import rmi.client.modules.chat.ClientChat;
-import rmi.serveur.modules.chat.MessageChat;
+import rmi.messages.MessageChat;
 
 
 public class LanceurClient {

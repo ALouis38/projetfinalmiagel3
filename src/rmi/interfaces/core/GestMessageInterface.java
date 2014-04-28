@@ -1,6 +1,6 @@
 package rmi.interfaces.core;
 
-import rmi.serveur.core.Message;
+import rmi.messages.Message;
 
 public interface GestMessageInterface {
 	

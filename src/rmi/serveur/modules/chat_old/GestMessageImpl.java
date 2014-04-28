@@ -5,8 +5,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import rmi.interfaces.core.GestMessageInterface;
-import rmi.serveur.core.Message;
-import rmi.serveur.modules.chat.MessageChat;
+import rmi.messages.Message;
+import rmi.messages.MessageChat;
 
 public class GestMessageImpl extends UnicastRemoteObject implements GestMessageInterface{
 
@@ -17,18 +17,8 @@ public class GestMessageImpl extends UnicastRemoteObject implements GestMessageI
 		listeUser = new ArrayList<Utilisateur>();
 	}
 
-	public void recupMessage(MessageChat message) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void renvoiMessage(MessageChat message) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
-	public void recupMessage(Message message) {
+	public void recupMessage( Message message) {
 		// TODO Auto-generated method stub
 		
 	}

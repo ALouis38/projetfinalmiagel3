@@ -3,6 +3,8 @@ package rmi.serveur.core;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
+import rmi.messages.Message;
+
 public class GestGeneralImpl extends UnicastRemoteObject {
 	
 	public Message msg;
