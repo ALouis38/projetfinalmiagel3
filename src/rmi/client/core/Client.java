@@ -14,6 +14,7 @@ import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
+import java.util.ArrayList;
 
 import rmi.client.modules.Notification.GestNotificationImpl;
 import rmi.client.modules.Notification.GestObjetImpl;
@@ -146,5 +147,26 @@ public class Client {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void afficherListeFichiers(){
+		System.out.println("Liste des fichiers présents sur le serveur :");
+		ArrayList<String> listeFichiersServeur;
+		try {
+			listeFichiersServeur = gestFile.getListeFichiers();
+			if (listeFichiersServeur.size()>0) {
+				for (String it : listeFichiersServeur) {
+					System.out.println("-"+it);
+				}
+			}
+			else {
+				System.out.println("Aucun fichiers sur le serveur");
+			}
+			
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 }

@@ -3,15 +3,19 @@ package rmi.serveur.core;
 import java.io.*;
 import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 import rmi.interfaces.core.GestFileInterface;
 
 public class GestFileImpl extends UnicastRemoteObject implements GestFileInterface {
 
 
+		ArrayList<String> listeFichiers;
+	
 	public GestFileImpl() throws RemoteException {
 
 		super(1099);
+		listeFichiers = new ArrayList<String>();
 
 	}
 
@@ -52,6 +56,7 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 					fos.write(tab);
 					fos.close();
 					System.out.println("Fichier écrit "+ tab.length );
+					listeFichiers.add(name);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -64,6 +69,13 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 	public void supprFile(String nom) throws RemoteException {
 		File f = new File("data/"+nom);
 		f.delete();
+		listeFichiers.remove(nom);
 		
 	}
+
+	@Override
+	public ArrayList<String> getListeFichiers() throws RemoteException {
+		return listeFichiers;
+	}
+
 }
