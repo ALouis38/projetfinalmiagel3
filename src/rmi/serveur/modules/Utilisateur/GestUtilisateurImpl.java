@@ -4,15 +4,16 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 
 import rmi.interfaces.modules.Utilisateur.GestUtilisateurInterface;
+import rmi.interfaces.modules.Utilisateur.Utilisateur;
 
 
 public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtilisateurInterface {
 	
-	private HashMap<String, String> listeUtilisateurs;
+	private HashMap<String, Utilisateur> listeUtilisateurs;
 	
 	public GestUtilisateurImpl() throws RemoteException {
 		super();
-		listeUtilisateurs = new HashMap<String, String>();
+		listeUtilisateurs = new HashMap<String, Utilisateur>();
 	}
 
 	
@@ -22,7 +23,7 @@ public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtil
 			System.out.println("Pseudo deja utilisé!");
 		}
 		else{
-			listeUtilisateurs.put(pseudo, ip);
+			listeUtilisateurs.put(pseudo, new Utilisateur(ip));
 		}
 	}
 
@@ -34,7 +35,7 @@ public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtil
 	}
 
 
-	public HashMap<String, String> getListeUtilisateurs() {
+	public HashMap<String, Utilisateur> getListeUtilisateurs() {
 		return listeUtilisateurs;
 	}
 }

@@ -9,13 +9,13 @@ import java.util.HashMap;
 import rmi.client.core.Client;
 import rmi.client.modules.Utilisateur.ClientUtilisateur;
 import rmi.interfaces.modules.Utilisateur.GestUtilisateurInterface;
+import rmi.interfaces.modules.Utilisateur.Utilisateur;
 import rmi.interfaces.modules.chat.GestChatInterface;
 import rmi.messages.Message;
 import rmi.messages.MessageChat;
 
-
 public class ClientChat extends Client {
-	
+
 	GestChatInterface chatI;
 	GestUtilisateurInterface gU;
 
@@ -25,18 +25,18 @@ public class ClientChat extends Client {
 		ClientUtilisateur cU = new ClientUtilisateur(p, aS, pseudo);
 
 	}
-	
-	public void envoyerMessage(Message message){
+
+	public void envoyerMessage(Message message) {
 		try {
-			HashMap<String, String> users = gU.getListeUtilisateurs();
+			HashMap<String, Utilisateur> users = gU.getListeUtilisateurs();
 			chatI.envoyerNotif(users, message, adresseServ);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	public ArrayList<Message> recevoirMessage(int indice){
+
+	public ArrayList<Message> recevoirMessage(int indice) {
 		try {
 			return chatI.recevoirMessage(indice);
 		} catch (RemoteException e) {
@@ -45,5 +45,5 @@ public class ClientChat extends Client {
 			return null;
 		}
 	}
-	
+
 }
