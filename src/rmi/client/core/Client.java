@@ -6,18 +6,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.MalformedURLException;
-import java.net.UnknownHostException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
 import java.util.ArrayList;
 
-import rmi.client.modules.Notification.GestNotificationImpl;
-import rmi.client.modules.Notification.GestObjetImpl;
 import rmi.interfaces.core.GestFileInterface;
 import rmi.interfaces.core.GestObjetInterface;
 /**
@@ -60,7 +55,7 @@ public class Client {
 			e.printStackTrace();
 		}
 		
-	    System.out.println("Objet rÃ©cupÃ©rÃ©");
+	    System.out.println("Objet récupéré:" + nom);
 	      try {
 			return r.getObjet(adresseServ, port, nom);
 		} catch (RemoteException e) {

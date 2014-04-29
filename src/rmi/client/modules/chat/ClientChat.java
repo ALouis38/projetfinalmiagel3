@@ -20,10 +20,10 @@ public class ClientChat extends Client {
 	GestChatInterface chatI;
 	GestUtilisateurInterface gU;
 
-	public ClientChat(int p, String aS, String pseudo) {
+	public ClientChat(int p, String aS, String pseudo, int regP) {
 		super(p, aS);
 		chatI = (GestChatInterface) getObjetRegistry("gestChat");
-		ClientNotification cN = new ClientNotification(p, aS);
+		ClientNotification cN = new ClientNotification(p, aS, regP);
 		ClientUtilisateur cU = new ClientUtilisateur(p, aS, pseudo);
 	}
 

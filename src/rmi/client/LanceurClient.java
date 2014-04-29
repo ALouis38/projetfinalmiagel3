@@ -10,9 +10,9 @@ import rmi.messages.MessageChat;
 public class LanceurClient {
 
 	public static void main(String[] args) {
-		Client c = new Client(1099,"192.168.1.5");
-		ClientChat cC = new ClientChat(1099, "192.168.1.5", "Jumbaa");
-		ClientChat cC2 = new ClientChat(1099, "192.168.1.5", "Zerooid");
+//		Client c = new Client(1099,"192.168.1.5");
+		ClientChat cC = new ClientChat(1099, "192.168.1.5", "Jumbaa", 2000);
+		ClientChat cC2 = new ClientChat(1099, "192.168.1.5", "Zerooid", 2111);
 		cC.envoyerMessage(new Message("COUCOU", "message"));
 
 	}
