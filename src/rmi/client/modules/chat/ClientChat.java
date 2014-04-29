@@ -19,12 +19,14 @@ public class ClientChat extends Client {
 
 	GestChatInterface chatI;
 	GestUtilisateurInterface gU;
+	String pseudo;
 
 	public ClientChat(int p, String aS, String pseudo, int regP) {
 		super(p, aS);
 		chatI = (GestChatInterface) getObjetRegistry("gestChat");
 		ClientNotification cN = new ClientNotification(p, aS, regP);
 		ClientUtilisateur cU = new ClientUtilisateur(p, aS, pseudo,regP);
+		this.pseudo = pseudo;
 	}
 
 	public void envoyerMessage(Message message) {
@@ -32,7 +34,7 @@ public class ClientChat extends Client {
 			gU = (GestUtilisateurInterface) getObjetRegistry("gestUtilisateur");
 			HashMap<String, Utilisateur> users = new HashMap<String, Utilisateur>();
 			users.putAll(gU.getListeUtilisateurs());
-			System.out.println("Taille liste:" + users.size());
+			System.out.println("Nb Users:" + users.size());
 			chatI.envoyerNotif(users, message, "message");
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block

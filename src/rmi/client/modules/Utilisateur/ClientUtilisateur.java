@@ -13,7 +13,8 @@ public class ClientUtilisateur extends Client {
 		super(p, aS);
 		gestI = (GestUtilisateurInterface) getObjetRegistry("gestUtilisateur");
 		try {
-			ip = InetAddress.getLocalHost().getAddress().toString();
+			ip = InetAddress.getLocalHost().getHostAddress();
+			System.out.println("IP CLIENT:" + ip +",PORT REGISTRY:" + portReg);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

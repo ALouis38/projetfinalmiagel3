@@ -1,6 +1,5 @@
 package rmi.serveur.modules.chat;
 
-import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -8,7 +7,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map.Entry;
+import java.util.Iterator;
+import java.util.Set;
 
 import rmi.interfaces.modules.Notification.GestNotificationInterface;
 import rmi.interfaces.modules.Utilisateur.Utilisateur;
@@ -40,10 +40,16 @@ public class GestChatImpl extends UnicastRemoteObject implements
 	
 	public void envoyerNotif(HashMap<String,Utilisateur> users, Message m, String type){	
 		
-		for (Entry<String, Utilisateur> currentEntry : users.entrySet()) {
-			Utilisateur user = currentEntry.getValue();
+		Set listKeys=users.keySet();  // Obtenir la liste des clés
+		Iterator iterateur=listKeys.iterator();
+		// Parcourir les clés et afficher les entrées de chaque clé;
+		while(iterateur.hasNext())
+		{
+			Object key= iterateur.next();
+			Utilisateur user = users.get(key);
 			String ip = user.getIp();
 			int portReg = user.getPortRegistry();
+			System.out.println("IP:" + ip + ", PORT REGISTRY:" + portReg);
 			try {
 				GestNotificationInterface gN = (GestNotificationInterface) Naming.lookup("rmi://"+  ip  +":"+ portReg + "/gestNotif");
 				gN.recupNotif(m, type);
@@ -58,8 +64,8 @@ public class GestChatImpl extends UnicastRemoteObject implements
 				e.printStackTrace();
 			}
 			
-
 		}
+		
 	}
 	
 	

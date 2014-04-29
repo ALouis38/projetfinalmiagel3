@@ -23,7 +23,8 @@ public class ClientNotification extends Client {
 			
 			gestObj = new GestObjetImpl();
 			try {
-				gestObj.addObjet(gestObj, "rmi://"+InetAddress.getLocalHost().getHostAddress().toString()+":"+ regP +"/gestObj");
+				gestObj.addObjet(gestObj, "rmi://"+InetAddress.getLocalHost().getHostAddress()+":"+ regP +"/gestObj");
+				gestObj.addObjet(notif, "rmi://"+InetAddress.getLocalHost().getHostAddress()+":"+ regP +"/gestNotif");
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

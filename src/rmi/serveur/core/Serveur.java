@@ -53,7 +53,7 @@ public class Serveur {
 				e.printStackTrace();
 			}
 		}
-		this.adresse = InetAddress.getLocalHost().getHostAddress().toString();
+		this.adresse = InetAddress.getLocalHost().getHostAddress();
 
 		
 		try {

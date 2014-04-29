@@ -16,7 +16,7 @@ public class Utilisateur implements Serializable {
 	}
 
 	public Utilisateur(String ip, int portReg){
-		
+		portRegistry = portReg;
 		this.ip = ip;
 	}
 
