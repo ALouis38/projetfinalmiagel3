@@ -5,6 +5,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 import rmi.interfaces.core.GestMessageInterface;
+import rmi.interfaces.modules.Utilisateur.Utilisateur;
 import rmi.messages.Message;
 import rmi.messages.MessageChat;
 

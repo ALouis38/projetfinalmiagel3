@@ -4,6 +4,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import rmi.client.core.Client;
 import rmi.client.modules.Utilisateur.ClientUtilisateur;
@@ -27,7 +28,8 @@ public class ClientChat extends Client {
 	
 	public void envoyerMessage(Message message){
 		try {
-			chatI.envoyerMessage(message);
+			HashMap<String, String> users = gU.getListeUtilisateurs();
+			chatI.envoyerNotif(users, message, adresseServ);
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

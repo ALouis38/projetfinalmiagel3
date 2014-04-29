@@ -32,4 +32,9 @@ public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtil
 		//
 		listeUtilisateurs.remove(pseudo);
 	}
+
+
+	public HashMap<String, String> getListeUtilisateurs() {
+		return listeUtilisateurs;
+	}
 }
