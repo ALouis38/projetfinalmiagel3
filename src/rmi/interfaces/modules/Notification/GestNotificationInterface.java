@@ -4,5 +4,5 @@ import java.rmi.RemoteException;
 
 import rmi.messages.Message;
 public interface GestNotificationInterface extends Remote {
-	public void recupNotif(Message notif,String type); 
+	public void recupNotif(Message notif,String type)throws RemoteException; 
 }

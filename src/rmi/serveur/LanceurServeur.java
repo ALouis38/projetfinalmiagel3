@@ -26,7 +26,7 @@ public class LanceurServeur {
 
 				serv.addGestionnaire(fileTest, "gestFile");
 				serv.addGestionnaire(chat, "gestChat");
-				serv.addGestionnaire(chat, "gestUtilisateur");
+				serv.addGestionnaire(user, "gestUtilisateur");
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			}

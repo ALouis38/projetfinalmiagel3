@@ -11,9 +11,8 @@ import rmi.messages.Message;
 
 public class GestNotificationImpl extends UnicastRemoteObject implements GestNotificationInterface {
 
-	public GestNotificationImpl() throws RemoteException {
+	protected GestNotificationImpl() throws RemoteException {
 		super();
-		
 	}
 
 	@Override
