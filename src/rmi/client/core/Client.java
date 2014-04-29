@@ -144,6 +144,16 @@ public class Client {
 		}
 	}
 	
+	public ArrayList<String> getListeFichiers(){
+		try {
+			return gestFile.getListeFichiers();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public void afficherListeFichiers(){
 		System.out.println("Liste des fichiers présents sur le serveur :");
 		ArrayList<String> listeFichiersServeur;
