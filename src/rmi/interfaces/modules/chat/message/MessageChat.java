@@ -1,4 +1,4 @@
-package rmi.messages;
+package rmi.interfaces.modules.chat.message;
 
 import java.io.Serializable;
 

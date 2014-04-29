@@ -12,8 +12,8 @@ import rmi.client.modules.Utilisateur.ClientUtilisateur;
 import rmi.interfaces.modules.Utilisateur.GestUtilisateurInterface;
 import rmi.interfaces.modules.Utilisateur.Utilisateur;
 import rmi.interfaces.modules.chat.GestChatInterface;
-import rmi.messages.Message;
-import rmi.messages.MessageChat;
+import rmi.interfaces.modules.chat.message.Message;
+import rmi.interfaces.modules.chat.message.MessageChat;
 
 public class ClientChat extends Client {
 

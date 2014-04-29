@@ -13,8 +13,8 @@ import java.util.Map.Entry;
 import rmi.interfaces.modules.Notification.GestNotificationInterface;
 import rmi.interfaces.modules.Utilisateur.Utilisateur;
 import rmi.interfaces.modules.chat.GestChatInterface;
-import rmi.messages.Message;
-import rmi.messages.MessageChat;
+import rmi.interfaces.modules.chat.message.Message;
+import rmi.interfaces.modules.chat.message.MessageChat;
 
 public class GestChatImpl extends UnicastRemoteObject implements
 		GestChatInterface {

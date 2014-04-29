@@ -3,8 +3,8 @@ package rmi.client;
 import rmi.client.core.Client;
 import rmi.client.modules.Utilisateur.ClientUtilisateur;
 import rmi.client.modules.chat.ClientChat;
-import rmi.messages.Message;
-import rmi.messages.MessageChat;
+import rmi.interfaces.modules.chat.message.Message;
+import rmi.interfaces.modules.chat.message.MessageChat;
 
 
 public class LanceurClient {

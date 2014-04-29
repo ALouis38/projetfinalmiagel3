@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import rmi.interfaces.modules.Utilisateur.Utilisateur;
-import rmi.messages.Message;
-import rmi.messages.MessageChat;
+import rmi.interfaces.modules.chat.message.Message;
+import rmi.interfaces.modules.chat.message.MessageChat;
 
 
 public interface GestChatInterface extends Remote {
