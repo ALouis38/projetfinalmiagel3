@@ -7,7 +7,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import rmi.interfaces.core.GestObjetInterface;
+import interfaces.core.GestObjetInterface;
 
 public class GestObjetImpl extends UnicastRemoteObject implements GestObjetInterface {
 
@@ -16,7 +16,6 @@ public class GestObjetImpl extends UnicastRemoteObject implements GestObjetInter
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public Remote getObjet(String adresse, int port, String nom) throws RemoteException {
 		
 		Remote r = null;
@@ -35,7 +34,6 @@ public class GestObjetImpl extends UnicastRemoteObject implements GestObjetInter
 		return r;
 	}
 
-	@Override
 	public void addObjet(Remote obj, String nom) throws RemoteException {
 		try {
 

@@ -4,8 +4,8 @@ import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
-import rmi.client.core.Client;
-import rmi.interfaces.modules.Notification.GestNotificationInterface;
+import client.core.Client;
+import interfaces.modules.Notification.GestNotificationInterface;
 public class ClientNotification extends Client {
 	GestNotificationInterface gestI;
 	public ClientNotification(int p, String aS) {

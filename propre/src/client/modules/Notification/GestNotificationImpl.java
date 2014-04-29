@@ -6,8 +6,8 @@ import java.rmi.server.UnicastRemoteObject;
 
 import javax.swing.JOptionPane;
 
-import rmi.interfaces.modules.Notification.GestNotificationInterface;
-import rmi.messages.Message;
+import interfaces.modules.Notification.GestNotificationInterface;
+import messages.Message;
 
 public class GestNotificationImpl extends UnicastRemoteObject implements GestNotificationInterface {
 

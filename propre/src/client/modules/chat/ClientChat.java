@@ -6,13 +6,13 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import rmi.client.core.Client;
-import rmi.client.modules.Utilisateur.ClientUtilisateur;
-import rmi.interfaces.modules.Utilisateur.GestUtilisateurInterface;
-import rmi.interfaces.modules.Utilisateur.Utilisateur;
-import rmi.interfaces.modules.chat.GestChatInterface;
-import rmi.messages.Message;
-import rmi.messages.MessageChat;
+import client.core.Client;
+import client.modules.Utilisateur.ClientUtilisateur;
+import interfaces.modules.Utilisateur.GestUtilisateurInterface;
+import interfaces.modules.Utilisateur.Utilisateur;
+import interfaces.modules.chat.GestChatInterface;
+import messages.Message;
+import messages.MessageChat;
 
 public class ClientChat extends Client {
 

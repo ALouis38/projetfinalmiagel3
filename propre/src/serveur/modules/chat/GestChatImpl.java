@@ -1,4 +1,4 @@
-package rmi.serveur.modules.chat;
+package serveur.modules.chat;
 
 import java.net.InetAddress;
 import java.net.MalformedURLException;
@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import rmi.interfaces.modules.Notification.GestNotificationInterface;
-import rmi.interfaces.modules.Utilisateur.Utilisateur;
-import rmi.interfaces.modules.chat.GestChatInterface;
-import rmi.messages.Message;
-import rmi.messages.MessageChat;
+import interfaces.modules.Notification.GestNotificationInterface;
+import interfaces.modules.Utilisateur.Utilisateur;
+import interfaces.modules.chat.GestChatInterface;
+import messages.Message;
+import messages.MessageChat;
 
 public class GestChatImpl extends UnicastRemoteObject implements
 		GestChatInterface {

@@ -5,7 +5,7 @@ import java.rmi.*;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-import rmi.interfaces.core.GestFileInterface;
+import interfaces.core.GestFileInterface;
 
 public class GestFileImpl extends UnicastRemoteObject implements GestFileInterface {
 
@@ -47,7 +47,6 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 
 	}
 
-	@Override
 	public void uploadFile(byte[] tab, String name) throws RemoteException {
 		FileOutputStream fos;
 		try {
@@ -65,7 +64,7 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 		}
 	}
 
-	@Override
+
 	public void supprFile(String nom) throws RemoteException {
 		File f = new File("data/"+nom);
 		f.delete();
@@ -73,7 +72,6 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 		
 	}
 
-	@Override
 	public ArrayList<String> getListeFichiers() throws RemoteException {
 		return listeFichiers;
 	}

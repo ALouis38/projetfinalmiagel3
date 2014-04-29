@@ -1,10 +1,10 @@
-package rmi.serveur.modules.Utilisateur;
+package serveur.modules.Utilisateur;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 
-import rmi.interfaces.modules.Utilisateur.GestUtilisateurInterface;
-import rmi.interfaces.modules.Utilisateur.Utilisateur;
+import interfaces.modules.Utilisateur.GestUtilisateurInterface;
+import interfaces.modules.Utilisateur.Utilisateur;
 
 
 public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtilisateurInterface {

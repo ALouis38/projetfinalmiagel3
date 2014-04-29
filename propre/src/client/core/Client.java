@@ -16,10 +16,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.util.ArrayList;
 
-import rmi.client.modules.Notification.GestNotificationImpl;
-import rmi.client.modules.Notification.GestObjetImpl;
-import rmi.interfaces.core.GestFileInterface;
-import rmi.interfaces.core.GestObjetInterface;
+import interfaces.core.GestFileInterface;
+import interfaces.core.GestObjetInterface;
 /**
  * Classe de base du client. Contient les méthodes manipulant les objets Remote côté client
  *
