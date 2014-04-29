@@ -10,7 +10,7 @@ public class LanceurClient {
 
 	public static void main(String[] args) {
 		Client c = new Client(1099,"25.82.116.237");
-		ClientUtilisateur cU = new ClientUtilisateur(1099, "25.82.116.237", "BITE");
+		//ClientUtilisateur cU = new ClientUtilisateur(1099, "25.82.116.237", "BITE");
 		c.downloadFichierRegistry("caca.txt");
 
 	}
