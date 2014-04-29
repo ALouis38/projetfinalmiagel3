@@ -31,8 +31,8 @@ public class GestChatImpl extends UnicastRemoteObject implements
 
 
 	@Override
-	public void envoyerMessage(Message message) throws RemoteException {
-		// TODO Auto-generated method stub
+	public Message envoyerMessage(Message message) throws RemoteException {
+		
 		
 	}
 	

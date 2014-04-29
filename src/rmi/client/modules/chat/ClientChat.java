@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import rmi.client.core.Client;
+import rmi.client.modules.Utilisateur.ClientUtilisateur;
 import rmi.interfaces.modules.Utilisateur.GestUtilisateurInterface;
 import rmi.interfaces.modules.chat.GestChatInterface;
 import rmi.messages.Message;
@@ -20,23 +21,8 @@ public class ClientChat extends Client {
 	public ClientChat(int p, String aS, String pseudo) {
 		super(p, aS);
 		chatI = (GestChatInterface) getObjetRegistry("gestChat");
-		gU = (GestUtilisateurInterface) getObjetRegistry("gestUtilisateur");
-		try {
-			gU.addUtilisateur(pseudo, InetAddress.getLocalHost().getAddress().toString());
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Message message = new Message(pseudo,"BITE");
-		try {
-			chatI.envoyerMessage(message);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ClientUtilisateur cU = new ClientUtilisateur(p, aS, pseudo);
+
 	}
 	
 	public void envoyerMessage(Message message){
