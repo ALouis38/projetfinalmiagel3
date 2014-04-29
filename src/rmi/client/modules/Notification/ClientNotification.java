@@ -7,13 +7,10 @@ import java.rmi.registry.LocateRegistry;
 import rmi.client.core.Client;
 import rmi.interfaces.modules.Notification.GestNotificationInterface;
 public class ClientNotification extends Client {
-	GestNotificationInterface gestI;
 	public ClientNotification(int p, String aS, int regP) {
-		super(p, aS);
-		gestI = (GestNotificationInterface) getObjetRegistry("gestNotification");
-		
+		super(p, aS);		
 		try {
-			LocateRegistry.createRegistry(2000);
+			LocateRegistry.createRegistry(regP);
 			GestNotificationImpl notif = new GestNotificationImpl();
 			
 			GestObjetImpl gestObj;
@@ -26,7 +23,7 @@ public class ClientNotification extends Client {
 			
 			gestObj = new GestObjetImpl();
 			try {
-				gestObj.addObjet(gestObj, "rmi://"+InetAddress.getLocalHost().getHostAddress()+":"+ regP +"gestObj");
+				gestObj.addObjet(gestObj, "rmi://"+InetAddress.getLocalHost().getHostAddress().toString()+":"+ regP +"/gestObj");
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

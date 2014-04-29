@@ -43,8 +43,9 @@ public class GestChatImpl extends UnicastRemoteObject implements
 		for (Entry<String, Utilisateur> currentEntry : users.entrySet()) {
 			Utilisateur user = currentEntry.getValue();
 			String ip = user.getIp();
+			int portReg = user.getPortRegistry();
 			try {
-				GestNotificationInterface gN = (GestNotificationInterface) Naming.lookup("rmi://"+  ip  +":2000/gestNotif");
+				GestNotificationInterface gN = (GestNotificationInterface) Naming.lookup("rmi://"+  ip  +":"+ portReg + "/gestNotif");
 				gN.recupNotif(m, type);
 			} catch (MalformedURLException e) {
 				// TODO Auto-generated catch block

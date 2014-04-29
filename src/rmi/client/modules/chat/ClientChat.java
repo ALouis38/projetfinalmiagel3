@@ -24,13 +24,16 @@ public class ClientChat extends Client {
 		super(p, aS);
 		chatI = (GestChatInterface) getObjetRegistry("gestChat");
 		ClientNotification cN = new ClientNotification(p, aS, regP);
-		ClientUtilisateur cU = new ClientUtilisateur(p, aS, pseudo);
+		ClientUtilisateur cU = new ClientUtilisateur(p, aS, pseudo,regP);
 	}
 
 	public void envoyerMessage(Message message) {
 		try {
-			HashMap<String, Utilisateur> users = gU.getListeUtilisateurs();
-			chatI.envoyerNotif(users, message, adresseServ);
+			gU = (GestUtilisateurInterface) getObjetRegistry("gestUtilisateur");
+			HashMap<String, Utilisateur> users = new HashMap<String, Utilisateur>();
+			users.putAll(gU.getListeUtilisateurs());
+			System.out.println("Taille liste:" + users.size());
+			chatI.envoyerNotif(users, message, "message");
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

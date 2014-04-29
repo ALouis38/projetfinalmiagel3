@@ -1,10 +1,22 @@
 package rmi.interfaces.modules.Utilisateur;
 
-public class Utilisateur {
+import java.io.Serializable;
+
+public class Utilisateur implements Serializable {
 	
 	String ip;
+	int portRegistry;
 	
-	public Utilisateur(String ip){
+	public int getPortRegistry() {
+		return portRegistry;
+	}
+
+	public void setPortRegistry(int portRegistry) {
+		this.portRegistry = portRegistry;
+	}
+
+	public Utilisateur(String ip, int portReg){
+		
 		this.ip = ip;
 	}
 
