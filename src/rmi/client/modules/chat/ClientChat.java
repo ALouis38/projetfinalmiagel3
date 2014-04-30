@@ -52,4 +52,12 @@ public class ClientChat extends Client {
 		}
 	}
 
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
+
 }
