@@ -138,6 +138,9 @@ public class Nexus extends JFrame {
 				Object[] moduleSelect = listModule.getSelectedValues();
 				ArrayList<String> moduleSelect2 = new ArrayList<String>();
 				for(int i = 0; i<moduleSelect.length; i++){
+					if(moduleSelect[i].toString().equals("chat")){
+						g.setGenChat(true);
+					}
 					moduleSelect2.add(moduleSelect[i].toString());
 				}
 				

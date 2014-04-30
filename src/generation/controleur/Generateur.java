@@ -15,6 +15,7 @@ public class Generateur {
 	EnsembleModule ens = new EnsembleModule();
 	Configuratione config = new Configuratione();
 	
+	boolean genChat=false;
 	/**
 	 * 
 	 * @param listeModule
@@ -80,7 +81,21 @@ public class Generateur {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+
 		}
+		
+		//générations des modules dependants
+		if(genChat){
+			File dirSourceModS2 = new File(config.getHome() + "/src/serveur/modules/Utilisateur");
+			File dirDestModS2 = new File(path + "/serveur/modules/Utilisateur");
+			try {
+				generation.controleur.Utils.copy(dirSourceModS2, dirDestModS2);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		
 		//dossier moduleInterface
 		File dirModuleInterface = new File(path + "/interfaces/modules");
@@ -92,6 +107,17 @@ public class Generateur {
 			File dirDestModI = new File(path + "/interfaces/modules/"+module);
 			try {
 				generation.controleur.Utils.copy(dirSourceModI, dirDestModI);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		if(genChat){
+			File dirSourceModI2 = new File(config.getHome() + "/src/interfaces/modules/Utilisateur");
+			File dirDestModI2 = new File(path + "/interfaces/modules/Utilisateur");
+			try {
+				generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -185,6 +211,26 @@ public class Generateur {
 				}
 			}
 			
+			if(genChat){
+				File dirSourceModS2 = new File(config.getHome() + "/src/client/modules/Utilisateur");
+				File dirDestModS2 = new File(path + "/client/modules/Utilisateur");
+				try {
+					generation.controleur.Utils.copy(dirSourceModS2, dirDestModS2);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				File dirSourceModS3 = new File(config.getHome() + "/src/client/modules/Notification");
+				File dirDestModS3 = new File(path + "/client/modules/Notification");
+				try {
+					generation.controleur.Utils.copy(dirSourceModS3, dirDestModS3);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
 			//dossier moduleInterface
 			File dirModuleInterface = new File(path + "/interfaces/modules");
 			dirModuleInterface.mkdir();
@@ -199,6 +245,28 @@ public class Generateur {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			}
+			
+			if(genChat){
+				File dirSourceModI2 = new File(config.getHome() + "/src/interfaces/modules/Utilisateur");
+				File dirDestModI2 = new File(path + "/interfaces/modules/Utilisateur");
+				try {
+					generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				File dirSourceModI3 = new File(config.getHome() + "/src/interfaces/modules/Notification");
+				File dirDestModI3 = new File(path + "/interfaces/modules/Notification");
+				try {
+					generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
 			}
 			
 			//contenu du dossier lib
@@ -224,6 +292,11 @@ public class Generateur {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		
+	}
+
+	public void setGenChat(boolean b) {
+		genChat = b;
 		
 	}
 	
