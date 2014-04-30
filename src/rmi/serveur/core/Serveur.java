@@ -24,6 +24,7 @@ public class Serveur {
 	
 	private int port;
 	private GestObjetImpl gestObj;
+	private GestFileImpl gestFile;
 	private String adresse;
 	/**
 	 * Constructeur du serveur
@@ -61,6 +62,9 @@ public class Serveur {
 			
 			gestObj = new GestObjetImpl();
 			gestObj.addObjet(gestObj, "rmi://"+adresse+":"+port+"/"+"gestObj");
+			
+			gestFile = new GestFileImpl();
+			gestObj.addObjet(gestFile, "rmi://"+adresse+":"+port+"/"+"gestFile");
 			
 			System.out.println("Adresse:" + adresse +"  Port:" + this.port);
 		    System.out.println("Serveur lancé");
