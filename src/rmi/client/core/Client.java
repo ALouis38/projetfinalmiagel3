@@ -121,10 +121,7 @@ public class Client {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				String[] bits = chemin.split("/");
-				String nom = bits[bits.length-1];
-				System.out.println(buffer.length);
-				gestFile.uploadFile(buffer, nom);
+				gestFile.uploadFile(buffer, f.getName());
 			} catch (RemoteException e) {
 				e.printStackTrace();
 			}
