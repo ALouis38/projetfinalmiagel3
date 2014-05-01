@@ -13,7 +13,7 @@ import generation.controleur.Utils;
 public class Generateur {
 
 	EnsembleModule ens = new EnsembleModule();
-	Configuratione config = new Configuratione();
+	String cheminPropre = "src/generation/propre";
 	
 	boolean genChat=false;
 	boolean genZip=false;
@@ -49,7 +49,7 @@ public class Generateur {
 		dirI.mkdir();
 		
 		//dossier coreServeur
-		File dirSourceCoreS = new File(config.getHome() + "/src/serveur/core");
+		File dirSourceCoreS = new File(cheminPropre + "/src/serveur/core");
 		File dirDestCoreS = new File(path +"/serveur/core");
 		try {
 			generation.controleur.Utils.copy(dirSourceCoreS, dirDestCoreS);
@@ -59,7 +59,7 @@ public class Generateur {
 		}
 		
 		//dossier coreInterface
-		File dirSourceCoreI = new File(config.getHome() + "/src/commun/core");
+		File dirSourceCoreI = new File(cheminPropre + "/src/commun/core");
 		File dirDestCoreI = new File(path +"/commun/core");
 		try {
 			generation.controleur.Utils.copy(dirSourceCoreI, dirDestCoreI);
@@ -75,7 +75,7 @@ public class Generateur {
 		for(int i = 0; i<listeModule.size(); i++){
 			if(!genZip){
 				String module = listeModule.get(i);
-				File dirSourceModS = new File(config.getHome() + "/src/serveur/modules/"+module);
+				File dirSourceModS = new File(cheminPropre + "/src/serveur/modules/"+module);
 				File dirDestModS = new File(path + "/serveur/modules/"+module);
 				try {
 					generation.controleur.Utils.copy(dirSourceModS, dirDestModS);
@@ -96,7 +96,7 @@ public class Generateur {
 		
 		for(int i = 0; i<listeModule.size(); i++){
 			String module = listeModule.get(i);
-			File dirSourceModI = new File(config.getHome() + "/src/commun/modules/"+module);
+			File dirSourceModI = new File(cheminPropre + "/src/commun/modules/"+module);
 			File dirDestModI = new File(path + "/commun/modules/"+module);
 			try {
 				generation.controleur.Utils.copy(dirSourceModI, dirDestModI);
@@ -113,7 +113,7 @@ public class Generateur {
 		dirLib.mkdir();
 		
 		//contenu du dossier bin
-		File dirSourceBin = new File(config.getHome() + "/bin");
+		File dirSourceBin = new File(cheminPropre + "/bin");
 		File dirDestBin = new File(pat +"/bin");
 		try {
 			generation.controleur.Utils.copy(dirSourceBin, dirDestBin);
@@ -123,7 +123,7 @@ public class Generateur {
 		}
 		
 		//lanceur serveur
-		File lanceurSourceS = new File(config.getHome() + "/src/serveur/LanceurServeur.java");
+		File lanceurSourceS = new File(cheminPropre + "/src/serveur/LanceurServeur.java");
 		File lanceurDestS = new File(pat +"/src/serveur/LanceurServeur.java");
 		try {
 			generation.controleur.Utils.copy(lanceurSourceS, lanceurDestS);
@@ -137,7 +137,7 @@ public class Generateur {
 		if(genChat){
 			
 			//UTILISATEUR//
-			File dirSourceModI2 = new File(config.getHome() + "/src/commun/modules/Utilisateur");
+			File dirSourceModI2 = new File(cheminPropre + "/src/commun/modules/Utilisateur");
 			File dirDestModI2 = new File(path + "/commun/modules/Utilisateur");
 			try {
 				generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
@@ -146,7 +146,7 @@ public class Generateur {
 				e.printStackTrace();
 			}
 			
-			File dirSourceModS3 = new File(config.getHome() + "/src/serveur/modules/Utilisateur");
+			File dirSourceModS3 = new File(cheminPropre + "/src/serveur/modules/Utilisateur");
 			File dirDestModS3 = new File(path + "/serveur/modules/Utilisateur");
 			try {
 				generation.controleur.Utils.copy(dirSourceModS3, dirDestModS3);
@@ -157,7 +157,7 @@ public class Generateur {
 			
 			//NOTICATION//
 			
-			File dirSourceModS5 = new File(config.getHome() + "/src/commun/modules/Notification");
+			File dirSourceModS5 = new File(cheminPropre + "/src/commun/modules/Notification");
 			File dirDestModS5 = new File(path + "/commun/modules/Notification");
 			try {
 				generation.controleur.Utils.copy(dirSourceModS5, dirDestModS5);
@@ -168,7 +168,7 @@ public class Generateur {
 			
 			
 			//MESSAGE//
-			File dirSourceModI3 = new File(config.getHome() + "/src/commun/modules/chat/message");
+			File dirSourceModI3 = new File(cheminPropre + "/src/commun/modules/chat/message");
 			File dirDestModI3 = new File(path + "/commun/modules/chat/message");
 			try {
 				generation.controleur.Utils.copy(dirSourceModI3, dirDestModI3);
@@ -208,7 +208,7 @@ public class Generateur {
 			dirI.mkdir();
 			
 			//dossier coreClient
-			File dirSourceCoreS = new File(config.getHome() + "/src/client/core");
+			File dirSourceCoreS = new File(cheminPropre + "/src/client/core");
 			File dirDestCoreS = new File(path +"/client/core");
 			try {
 				generation.controleur.Utils.copy(dirSourceCoreS, dirDestCoreS);
@@ -218,7 +218,7 @@ public class Generateur {
 			}
 			
 			//dossier coreInterface
-			File dirSourceCoreI = new File(config.getHome() + "/src/commun/core");
+			File dirSourceCoreI = new File(cheminPropre + "/src/commun/core");
 			File dirDestCoreI = new File(path +"/commun/core");
 			try {
 				generation.controleur.Utils.copy(dirSourceCoreI, dirDestCoreI);
@@ -234,7 +234,7 @@ public class Generateur {
 			for(int i = 0; i<listeModule.size(); i++){
 				if(!genZip){
 					String module = listeModule.get(i);
-					File dirSourceModS = new File(config.getHome() + "/src/client/modules/"+module);
+					File dirSourceModS = new File(cheminPropre + "/src/client/modules/"+module);
 					File dirDestModS = new File(path + "/client/modules/"+module);
 					try {
 						generation.controleur.Utils.copy(dirSourceModS, dirDestModS);
@@ -253,7 +253,7 @@ public class Generateur {
 			
 			for(int i = 0; i<listeModule.size(); i++){
 				String module = listeModule.get(i);
-				File dirSourceModI = new File(config.getHome() + "/src/commun/modules/"+module);
+				File dirSourceModI = new File(cheminPropre + "/src/commun/modules/"+module);
 				File dirDestModI = new File(path + "/commun/modules/"+module);
 				try {
 					generation.controleur.Utils.copy(dirSourceModI, dirDestModI);
@@ -270,7 +270,7 @@ public class Generateur {
 			dirLib.mkdir();
 			
 			//contenu du dossier bin
-			File dirSourceBin = new File(config.getHome() + "/bin");
+			File dirSourceBin = new File(cheminPropre + "/bin");
 			File dirDestBin = new File(pat +"/bin");
 			try {
 				generation.controleur.Utils.copy(dirSourceBin, dirDestBin);
@@ -280,7 +280,7 @@ public class Generateur {
 			}
 			
 			//lanceur client
-			File lanceurSourceC = new File(config.getHome() + "/src/client/LanceurClient.java");
+			File lanceurSourceC = new File(cheminPropre + "/src/client/LanceurClient.java");
 			File lanceurDestC = new File(pat +"/src/client/LanceurClient.java");
 			try {
 				generation.controleur.Utils.copy(lanceurSourceC, lanceurDestC);
@@ -294,7 +294,7 @@ public class Generateur {
 			if(genChat){
 				
 				//UTILISATEUR//
-				File dirSourceModS2 = new File(config.getHome() + "/src/client/modules/Utilisateur");
+				File dirSourceModS2 = new File(cheminPropre + "/src/client/modules/Utilisateur");
 				File dirDestModS2 = new File(path + "/client/modules/Utilisateur");
 				try {
 					generation.controleur.Utils.copy(dirSourceModS2, dirDestModS2);
@@ -303,7 +303,7 @@ public class Generateur {
 					e.printStackTrace();
 				}
 				
-				File dirSourceModI3 = new File(config.getHome() + "/src/commun/modules/Utilisateur");
+				File dirSourceModI3 = new File(cheminPropre + "/src/commun/modules/Utilisateur");
 				File dirDestModI3 = new File(path + "/commun/modules/Utilisateur");
 				try {
 					generation.controleur.Utils.copy(dirSourceModI3, dirDestModI3);
@@ -313,7 +313,7 @@ public class Generateur {
 				}
 				
 				//NOTIFICATION//
-				File dirSourceModS3 = new File(config.getHome() + "/src/client/modules/Notification");
+				File dirSourceModS3 = new File(cheminPropre + "/src/client/modules/Notification");
 				File dirDestModS3 = new File(path + "/client/modules/Notification");
 				try {
 					generation.controleur.Utils.copy(dirSourceModS3, dirDestModS3);
@@ -322,7 +322,7 @@ public class Generateur {
 					e.printStackTrace();
 				}
 				
-				File dirSourceModI4 = new File(config.getHome() + "/src/commun/modules/Notification");
+				File dirSourceModI4 = new File(cheminPropre + "/src/commun/modules/Notification");
 				File dirDestModI4 = new File(path + "/commun/modules/Notification");
 				try {
 					generation.controleur.Utils.copy(dirSourceModI4, dirDestModI4);
@@ -332,7 +332,7 @@ public class Generateur {
 				}
 				
 				//MESSAGE//
-				File dirSourceModI5 = new File(config.getHome() + "/src/commun/modules/chat/message");
+				File dirSourceModI5 = new File(cheminPropre + "/src/commun/modules/chat/message");
 				File dirDestModI5 = new File(path + "/commun/modules/chat/message");
 				try {
 					generation.controleur.Utils.copy(dirSourceModI5, dirDestModI5);
