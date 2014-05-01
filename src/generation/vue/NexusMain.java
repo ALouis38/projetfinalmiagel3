@@ -76,7 +76,9 @@ public class NexusMain extends JFrame {
 					Configuratione conf = new Configuratione();
 					/////////////////
 					//Met ici le chemin de ton PDF
-					File pdfFile = new File(conf.getHome() +"/help.pdf");
+
+					File pdfFile = new File("help.pdf");
+//					File pdfFile = new File(conf.getHome() +"/help.pdf");
 					//////////////
 					if (pdfFile.exists()) {
 			 
