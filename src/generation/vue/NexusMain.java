@@ -74,7 +74,10 @@ public class NexusMain extends JFrame {
 				//awt desktop - ouverture d'un fichier PDF avec le lecteur de PDF par défault - Multiplateforme
 				try {
 					Configuratione conf = new Configuratione();
+					/////////////////
+					//Met ici le chemin de ton PDF
 					File pdfFile = new File(conf.getHome() +"/help.pdf");
+					//////////////
 					if (pdfFile.exists()) {
 			 
 						if (Desktop.isDesktopSupported()) {
