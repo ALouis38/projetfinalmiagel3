@@ -186,8 +186,8 @@ public class Generateur {
 			}
 			
 			//dossier coreInterface
-			File dirSourceCoreI = new File(config.getHome() + "/src/interfaces/core");
-			File dirDestCoreI = new File(path +"/interfaces/core");
+			File dirSourceCoreI = new File(config.getHome() + "/src/commun/core");
+			File dirDestCoreI = new File(path +"/commun/core");
 			try {
 				generation.controleur.Utils.copy(dirSourceCoreI, dirDestCoreI);
 			} catch (IOException e) {
@@ -232,13 +232,13 @@ public class Generateur {
 			}
 			
 			//dossier moduleInterface
-			File dirModuleInterface = new File(path + "/interfaces/modules");
+			File dirModuleInterface = new File(path + "/commun/modules");
 			dirModuleInterface.mkdir();
 			
 			for(int i = 0; i<listeModule.size(); i++){
 				String module = listeModule.get(i);
-				File dirSourceModI = new File(config.getHome() + "/src/interfaces/modules/"+module);
-				File dirDestModI = new File(path + "/interfaces/modules/"+module);
+				File dirSourceModI = new File(config.getHome() + "/src/commun/modules/"+module);
+				File dirDestModI = new File(path + "/commun/modules/"+module);
 				try {
 					generation.controleur.Utils.copy(dirSourceModI, dirDestModI);
 				} catch (IOException e) {
@@ -248,8 +248,8 @@ public class Generateur {
 			}
 			
 			if(genChat){
-				File dirSourceModI2 = new File(config.getHome() + "/src/interfaces/modules/Utilisateur");
-				File dirDestModI2 = new File(path + "/interfaces/modules/Utilisateur");
+				File dirSourceModI2 = new File(config.getHome() + "/src/commun/modules/Utilisateur");
+				File dirDestModI2 = new File(path + "/commun/modules/Utilisateur");
 				try {
 					generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
 				} catch (IOException e) {
@@ -257,8 +257,8 @@ public class Generateur {
 					e.printStackTrace();
 				}
 				
-				File dirSourceModI3 = new File(config.getHome() + "/src/interfaces/modules/Notification");
-				File dirDestModI3 = new File(path + "/interfaces/modules/Notification");
+				File dirSourceModI3 = new File(config.getHome() + "/src/commun/modules/Notification");
+				File dirDestModI3 = new File(path + "/commun/modules/Notification");
 				try {
 					generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
 				} catch (IOException e) {

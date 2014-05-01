@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
 import rmi.client.core.Client;
-import rmi.interfaces.modules.Notification.GestNotificationInterface;
+import rmi.commun.modules.Notification.GestNotificationInterface;
 public class ClientNotification extends Client {
 	public ClientNotification(int p, String aS, int regP) {
 		super(p, aS);		

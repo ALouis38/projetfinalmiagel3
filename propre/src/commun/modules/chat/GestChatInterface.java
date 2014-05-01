@@ -1,13 +1,13 @@
-package rmi.interfaces.modules.chat;
+package interfaces.modules.chat;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import rmi.interfaces.modules.Utilisateur.Utilisateur;
-import rmi.interfaces.modules.chat.message.Message;
-import rmi.interfaces.modules.chat.message.MessageChat;
+import rmi.commun.modules.Utilisateur.Utilisateur;
+import rmi.messages.Message;
+import rmi.messages.MessageChat;
 
 
 public interface GestChatInterface extends Remote {

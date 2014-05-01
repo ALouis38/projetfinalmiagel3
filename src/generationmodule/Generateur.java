@@ -40,7 +40,7 @@ public class Generateur {
 			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"client/modules/"+nm+"/Client"+nm+".java")));
 			generateur.println("package rmi.client.modules."+nm+";");
 			generateur.println("import rmi.client.core.Client;");
-			generateur.println("import rmi.interfaces.modules."+nm+".Gest"+nm+"Interface;");
+			generateur.println("import rmi.commun.modules."+nm+".Gest"+nm+"Interface;");
 			generateur.println("public class Client"+nm+" extends Client {");
 			generateur.println("\tGest"+nm+"Interface gestI;");
 			generateur.println("\tpublic Client"+nm+"(int p, String aS) {");
@@ -62,7 +62,7 @@ public class Generateur {
 	    	File dir = new File(chemin + "interfaces/modules/" + nm);
 			dir.mkdir();
 			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"interfaces/modules/"+nm+"/Gest"+nm+"Interface.java")));
-			generateur.println("package rmi.interfaces.modules."+nm+";");
+			generateur.println("package rmi.commun.modules."+nm+";");
 			generateur.println("import java.rmi.Remote;");
 			generateur.println("import java.rmi.RemoteException;");
 			generateur.println("public interface Gest"+nm+"Interface extends Remote {");
@@ -83,7 +83,7 @@ public class Generateur {
 			generateur.println("package rmi.serveur.modules."+nm+";");
 			generateur.println("import java.rmi.RemoteException;");
 			generateur.println("import java.rmi.server.UnicastRemoteObject;");
-			generateur.println("import rmi.interfaces.modules."+nm+".Gest"+nm+"Interface;");
+			generateur.println("import rmi.commun.modules."+nm+".Gest"+nm+"Interface;");
 			
 			generateur.println("public class Gest"+nm+"Impl extends UnicastRemoteObject implements Gest"+nm+"Interface {");
 			generateur.println("\tpublic Gest"+nm+"Impl() throws RemoteException {");

@@ -10,11 +10,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
-import rmi.interfaces.modules.Notification.GestNotificationInterface;
-import rmi.interfaces.modules.Utilisateur.Utilisateur;
-import rmi.interfaces.modules.chat.GestChatInterface;
-import rmi.interfaces.modules.chat.message.Message;
-import rmi.interfaces.modules.chat.message.MessageChat;
+import rmi.commun.modules.Notification.GestNotificationInterface;
+import rmi.commun.modules.Utilisateur.Utilisateur;
+import rmi.commun.modules.chat.GestChatInterface;
+import rmi.commun.modules.chat.message.Message;
+import rmi.commun.modules.chat.message.MessageChat;
 
 public class GestChatImpl extends UnicastRemoteObject implements
 		GestChatInterface {

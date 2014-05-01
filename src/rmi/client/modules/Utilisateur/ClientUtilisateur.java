@@ -4,7 +4,7 @@ import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 
 import rmi.client.core.Client;
-import rmi.interfaces.modules.Utilisateur.GestUtilisateurInterface;
+import rmi.commun.modules.Utilisateur.GestUtilisateurInterface;
 public class ClientUtilisateur extends Client {
 	GestUtilisateurInterface gestI;
 	String ip;

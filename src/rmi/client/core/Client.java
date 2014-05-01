@@ -13,8 +13,8 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-import rmi.interfaces.core.GestFileInterface;
-import rmi.interfaces.core.GestObjetInterface;
+import rmi.commun.core.GestFileInterface;
+import rmi.commun.core.GestObjetInterface;
 /**
  * Classe de base du client. Contient les méthodes manipulant les objets Remote côté client
  *

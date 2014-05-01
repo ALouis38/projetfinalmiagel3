@@ -9,11 +9,11 @@ import java.util.HashMap;
 import rmi.client.core.Client;
 import rmi.client.modules.Notification.ClientNotification;
 import rmi.client.modules.Utilisateur.ClientUtilisateur;
-import rmi.interfaces.modules.Utilisateur.GestUtilisateurInterface;
-import rmi.interfaces.modules.Utilisateur.Utilisateur;
-import rmi.interfaces.modules.chat.GestChatInterface;
-import rmi.interfaces.modules.chat.message.Message;
-import rmi.interfaces.modules.chat.message.MessageChat;
+import rmi.commun.modules.Utilisateur.GestUtilisateurInterface;
+import rmi.commun.modules.Utilisateur.Utilisateur;
+import rmi.commun.modules.chat.GestChatInterface;
+import rmi.commun.modules.chat.message.Message;
+import rmi.commun.modules.chat.message.MessageChat;
 
 public class ClientChat extends Client {
 
