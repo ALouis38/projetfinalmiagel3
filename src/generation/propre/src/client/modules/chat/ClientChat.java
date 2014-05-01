@@ -8,9 +8,9 @@ import java.util.HashMap;
 
 import client.core.Client;
 import client.modules.Utilisateur.ClientUtilisateur;
-import interfaces.modules.Utilisateur.GestUtilisateurInterface;
-import interfaces.modules.Utilisateur.Utilisateur;
-import interfaces.modules.chat.GestChatInterface;
+import commun.modules.Utilisateur.GestUtilisateurInterface;
+import commun.modules.Utilisateur.Utilisateur;
+import commun.modules.chat.GestChatInterface;
 import messages.Message;
 import messages.MessageChat;
 

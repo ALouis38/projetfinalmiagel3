@@ -3,8 +3,8 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 
-import interfaces.modules.Utilisateur.GestUtilisateurInterface;
-import interfaces.modules.Utilisateur.Utilisateur;
+import commun.modules.Utilisateur.GestUtilisateurInterface;
+import commun.modules.Utilisateur.Utilisateur;
 
 
 public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtilisateurInterface {

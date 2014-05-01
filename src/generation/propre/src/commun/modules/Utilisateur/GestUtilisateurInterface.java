@@ -1,4 +1,4 @@
-package interfaces.modules.Utilisateur;
+package commun.modules.Utilisateur;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package interfaces.core;
+package commun.core;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.ArrayList;

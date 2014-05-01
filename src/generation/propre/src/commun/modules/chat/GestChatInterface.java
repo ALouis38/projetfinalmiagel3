@@ -1,4 +1,4 @@
-package interfaces.modules.chat;
+package commun.modules.chat;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

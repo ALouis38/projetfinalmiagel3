@@ -7,7 +7,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 
-import interfaces.core.GestObjetInterface;
+import commun.core.GestObjetInterface;
 
 public class GestObjetImpl extends UnicastRemoteObject implements GestObjetInterface {
 

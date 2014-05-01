@@ -5,7 +5,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
 import client.core.Client;
-import interfaces.modules.Notification.GestNotificationInterface;
+import commun.modules.Notification.GestNotificationInterface;
 public class ClientNotification extends Client {
 	GestNotificationInterface gestI;
 	public ClientNotification(int p, String aS) {

@@ -1,4 +1,4 @@
-package interfaces.modules.Utilisateur;
+package commun.modules.Utilisateur;
 
 public class Utilisateur {
 	

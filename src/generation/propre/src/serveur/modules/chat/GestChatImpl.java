@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import interfaces.modules.Notification.GestNotificationInterface;
-import interfaces.modules.Utilisateur.Utilisateur;
-import interfaces.modules.chat.GestChatInterface;
+import commun.modules.Notification.GestNotificationInterface;
+import commun.modules.Utilisateur.Utilisateur;
+import commun.modules.chat.GestChatInterface;
 import messages.Message;
 import messages.MessageChat;
 

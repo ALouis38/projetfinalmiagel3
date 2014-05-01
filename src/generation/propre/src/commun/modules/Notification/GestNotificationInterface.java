@@ -1,4 +1,4 @@
-package interfaces.modules.Notification;
+package commun.modules.Notification;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

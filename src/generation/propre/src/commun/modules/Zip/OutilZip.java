@@ -1,4 +1,4 @@
-package rmi.commun.modules.Zip;
+package commun.modules.Zip;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
