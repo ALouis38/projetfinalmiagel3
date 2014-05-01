@@ -153,17 +153,9 @@ public class Generateur {
 			}
 			
 			//NOTICATION//
-			File dirSourceModS4 = new File(config.getHome() + "/src/client/modules/Notification");
-			File dirDestModS4 = new File(path + "/client/modules/Notification");
-			try {
-				generation.controleur.Utils.copy(dirSourceModS4, dirDestModS4);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
 			File dirSourceModS5 = new File(config.getHome() + "/src/commun/modules/Notification");
-			File dirDestModS5 = new File(path + "/client/commun/Notification");
+			File dirDestModS5 = new File(path + "/commun/modules/Notification");
 			try {
 				generation.controleur.Utils.copy(dirSourceModS5, dirDestModS5);
 			} catch (IOException e) {
