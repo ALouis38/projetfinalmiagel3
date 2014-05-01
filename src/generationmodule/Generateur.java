@@ -13,7 +13,8 @@ import rmi.client.core.Client;
 public class Generateur {
 	
 	String nm;
-	String chemin;
+	String cheminServeur;
+	String cheminClient;
 	
 //	public static void main(String[] args) {
 //		String nm = "Packtest";
@@ -25,7 +26,10 @@ public class Generateur {
 	
 	public Generateur(String nm, String chemin){
 		this.nm = nm;
-		this.chemin = chemin+"/";
+		String cheminAbsolu = new File(chemin).getAbsolutePath();
+		String nomProjet = new File(chemin).getName();
+		cheminServeur = cheminAbsolu+"/"+nomProjet+"-serveur/";
+		cheminClient = cheminAbsolu+"/"+nomProjet+"-client/";
 		genererClient();
 		genererGestInterface();
 		genererGestImpl();
@@ -35,12 +39,12 @@ public class Generateur {
 		PrintWriter generateur;
 
 	    try {
-	    	File dir = new File(chemin + "client/modules/" + nm);
+	    	File dir = new File(cheminClient + "src/client/modules/" + nm);
 			dir.mkdir();
-			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"client/modules/"+nm+"/Client"+nm+".java")));
-			generateur.println("package rmi.client.modules."+nm+";");
-			generateur.println("import rmi.client.core.Client;");
-			generateur.println("import rmi.commun.modules."+nm+".Gest"+nm+"Interface;");
+			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(cheminClient+ "src/client/modules/"+nm+"/Client"+nm+".java")));
+			generateur.println("package client.modules."+nm+";");
+			generateur.println("import client.core.Client;");
+			generateur.println("import commun.modules."+nm+".Gest"+nm+"Interface;");
 			generateur.println("public class Client"+nm+" extends Client {");
 			generateur.println("\tGest"+nm+"Interface gestI;");
 			generateur.println("\tpublic Client"+nm+"(int p, String aS) {");
@@ -59,10 +63,10 @@ public class Generateur {
 		PrintWriter generateur;
 
 	    try {
-	    	File dir = new File(chemin + "interfaces/modules/" + nm);
+	    	File dir = new File(cheminClient + "src/commun/modules/" + nm);
 			dir.mkdir();
-			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"interfaces/modules/"+nm+"/Gest"+nm+"Interface.java")));
-			generateur.println("package rmi.commun.modules."+nm+";");
+			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(cheminClient+"src/commun/modules/"+nm+"/Gest"+nm+"Interface.java")));
+			generateur.println("package commun.modules."+nm+";");
 			generateur.println("import java.rmi.Remote;");
 			generateur.println("import java.rmi.RemoteException;");
 			generateur.println("public interface Gest"+nm+"Interface extends Remote {");
@@ -71,19 +75,33 @@ public class Generateur {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}   
+	    
+	    try {
+	    	File dir = new File(cheminServeur + "src/commun/modules/" + nm);
+			dir.mkdir();
+			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(cheminServeur +"src/commun/modules/"+nm+"/Gest"+nm+"Interface.java")));
+			generateur.println("package commun.modules."+nm+";");
+			generateur.println("import java.rmi.Remote;");
+			generateur.println("import java.rmi.RemoteException;");
+			generateur.println("public interface Gest"+nm+"Interface extends Remote {");
+		    generateur.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 	}
 	
 	public void genererGestImpl(){
 		PrintWriter generateur;
 //
 	    try {
-	    	File dir = new File(chemin + "serveur/modules/" + nm);
+	    	File dir = new File(cheminServeur + "src/serveur/modules/" + nm);
 			dir.mkdir();
-			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"serveur/modules/"+nm+"/Gest"+nm+"Impl.java")));
-			generateur.println("package rmi.serveur.modules."+nm+";");
+			generateur =  new PrintWriter(new BufferedWriter(new FileWriter(cheminServeur+"src/serveur/modules/"+nm+"/Gest"+nm+"Impl.java")));
+			generateur.println("package serveur.modules."+nm+";");
 			generateur.println("import java.rmi.RemoteException;");
 			generateur.println("import java.rmi.server.UnicastRemoteObject;");
-			generateur.println("import rmi.commun.modules."+nm+".Gest"+nm+"Interface;");
+			generateur.println("import commun.modules."+nm+".Gest"+nm+"Interface;");
 			
 			generateur.println("public class Gest"+nm+"Impl extends UnicastRemoteObject implements Gest"+nm+"Interface {");
 			generateur.println("\tpublic Gest"+nm+"Impl() throws RemoteException {");
@@ -100,7 +118,7 @@ public class Generateur {
 	public void ajouterFonction(String signature, String retour){
 		PrintWriter generateur;
 			    try {
-					generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"serveur/modules/"+nm+"/Gest"+nm+"Impl.java", true)));
+					generateur =  new PrintWriter(new BufferedWriter(new FileWriter(cheminServeur+"src/serveur/modules/"+nm+"/Gest"+nm+"Impl.java", true)));
 					generateur.println("\t\tpublic "+retour+" "+signature+" {");
 					generateur.println("\t\t\t//TODO : Ecrire le corps de la méthode ici");
 					if (retour.equals("objet")) {
@@ -117,7 +135,7 @@ public class Generateur {
 					}
 					generateur.println("\t\t}");
 				    generateur.close();
-				    generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"interfaces/modules/"+nm+"/Gest"+nm+"Interface.java", true)));
+				    generateur =  new PrintWriter(new BufferedWriter(new FileWriter(cheminServeur+"src/commun/modules/"+nm+"/Gest"+nm+"Interface.java", true)));
 				    generateur.println("\t\tpublic "+retour+" "+signature+" throws RemoteException ;");
 				    generateur.close();
 				} catch (IOException e) {
@@ -129,10 +147,13 @@ public class Generateur {
 	public void fermerLesFichiers(){
 		PrintWriter generateur;
 		    try {
-				generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"serveur/modules/"+nm+"/Gest"+nm+"Impl.java", true)));
+				generateur =  new PrintWriter(new BufferedWriter(new FileWriter(cheminServeur+"src/serveur/modules/"+nm+"/Gest"+nm+"Impl.java", true)));
 				generateur.println("}");
 			    generateur.close();
-			    generateur =  new PrintWriter(new BufferedWriter(new FileWriter(chemin+"interfaces/modules/"+nm+"/Gest"+nm+"Interface.java", true)));
+			    generateur =  new PrintWriter(new BufferedWriter(new FileWriter(cheminServeur+"src/commun/modules/"+nm+"/Gest"+nm+"Interface.java", true)));
+			    generateur.println("}");
+			    generateur.close();
+			    generateur =  new PrintWriter(new BufferedWriter(new FileWriter(cheminClient+"src/commun/modules/"+nm+"/Gest"+nm+"Interface.java", true)));
 			    generateur.println("}");
 			    generateur.close();
 			} catch (IOException e) {
