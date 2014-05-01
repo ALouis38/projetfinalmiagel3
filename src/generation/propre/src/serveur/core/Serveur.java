@@ -16,7 +16,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Enumeration;
 
-import rmi.serveur.core.GestFileImpl;
+import serveur.core.GestFileImpl;
 /**
  * Classe représentant le serveur
  * 
