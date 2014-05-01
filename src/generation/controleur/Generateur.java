@@ -40,6 +40,11 @@ public class Generateur {
 		File dirSrc = new File(path);
 		dirSrc.mkdir();
 		
+		//dossier data
+		String pathData = pat + "/data";
+		File dirData = new File(pathData);
+		dirData.mkdir();
+		
 		//dossier serveur
 		File dirS = new File(path + "/serveur");
 		dirS.mkdir();
@@ -198,6 +203,11 @@ public class Generateur {
 			String path = pat + "/src";
 			File dirSrc = new File(path);
 			dirSrc.mkdir();
+			
+			//dossier data
+			String pathData = pat + "/data";
+			File dirData = new File(pathData);
+			dirData.mkdir();
 			
 			//dossier client
 			File dirS = new File(path + "/client");
