@@ -44,7 +44,7 @@ public class Generateur {
 		dirS.mkdir();
 		
 		//dossier interface
-		File dirI = new File(path + "/interfaces");
+		File dirI = new File(path + "/commun");
 		dirI.mkdir();
 		
 		//dossier coreServeur
@@ -58,8 +58,8 @@ public class Generateur {
 		}
 		
 		//dossier coreInterface
-		File dirSourceCoreI = new File(config.getHome() + "/src/interfaces/core");
-		File dirDestCoreI = new File(path +"/interfaces/core");
+		File dirSourceCoreI = new File(config.getHome() + "/src/commun/core");
+		File dirDestCoreI = new File(path +"/commun/core");
 		try {
 			generation.controleur.Utils.copy(dirSourceCoreI, dirDestCoreI);
 		} catch (IOException e) {
@@ -84,27 +84,17 @@ public class Generateur {
 
 		}
 		
-		//générations des modules dependants
-		if(genChat){
-			File dirSourceModS2 = new File(config.getHome() + "/src/serveur/modules/Utilisateur");
-			File dirDestModS2 = new File(path + "/serveur/modules/Utilisateur");
-			try {
-				generation.controleur.Utils.copy(dirSourceModS2, dirDestModS2);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+
 		
 		
 		//dossier moduleInterface
-		File dirModuleInterface = new File(path + "/interfaces/modules");
+		File dirModuleInterface = new File(path + "/commun/modules");
 		dirModuleInterface.mkdir();
 		
 		for(int i = 0; i<listeModule.size(); i++){
 			String module = listeModule.get(i);
-			File dirSourceModI = new File(config.getHome() + "/src/interfaces/modules/"+module);
-			File dirDestModI = new File(path + "/interfaces/modules/"+module);
+			File dirSourceModI = new File(config.getHome() + "/src/commun/modules/"+module);
+			File dirDestModI = new File(path + "/commun/modules/"+module);
 			try {
 				generation.controleur.Utils.copy(dirSourceModI, dirDestModI);
 			} catch (IOException e) {
@@ -113,16 +103,7 @@ public class Generateur {
 			}
 		}
 		
-		if(genChat){
-			File dirSourceModI2 = new File(config.getHome() + "/src/interfaces/modules/Utilisateur");
-			File dirDestModI2 = new File(path + "/interfaces/modules/Utilisateur");
-			try {
-				generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+
 		
 		//contenu du dossier lib
 		File dirLib = new File(pat + "/lib");
@@ -147,7 +128,63 @@ public class Generateur {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+/////////////////////////////////////////////////////GENERATION MODULE ASSOCIE A CHAT/////////////////////////////////////////////////////
+		
+		if(genChat){
+			
+			//UTILISATEUR//
+			File dirSourceModI2 = new File(config.getHome() + "/src/commun/modules/Utilisateur");
+			File dirDestModI2 = new File(path + "/commun/modules/Utilisateur");
+			try {
+				generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			File dirSourceModS3 = new File(config.getHome() + "/src/serveur/modules/Utilisateur");
+			File dirDestModS3 = new File(path + "/serveur/modules/Utilisateur");
+			try {
+				generation.controleur.Utils.copy(dirSourceModS3, dirDestModS3);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			//NOTICATION//
+			File dirSourceModS4 = new File(config.getHome() + "/src/client/modules/Notification");
+			File dirDestModS4 = new File(path + "/client/modules/Notification");
+			try {
+				generation.controleur.Utils.copy(dirSourceModS4, dirDestModS4);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			File dirSourceModS5 = new File(config.getHome() + "/src/commun/modules/Notification");
+			File dirDestModS5 = new File(path + "/client/commun/Notification");
+			try {
+				generation.controleur.Utils.copy(dirSourceModS5, dirDestModS5);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			//MESSAGE//
+			File dirSourceModI3 = new File(config.getHome() + "/src/commun/modules/chat/message");
+			File dirDestModI3 = new File(path + "/commun/modules/chat/message");
+			try {
+				generation.controleur.Utils.copy(dirSourceModI3, dirDestModI3);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 
+		}
+		
 	}
 	
 	public ArrayList<String> listeModule(){
@@ -172,7 +209,7 @@ public class Generateur {
 			dirS.mkdir();
 			
 			//dossier interface
-			File dirI = new File(path + "/interfaces");
+			File dirI = new File(path + "/commun");
 			dirI.mkdir();
 			
 			//dossier coreClient
@@ -211,25 +248,7 @@ public class Generateur {
 				}
 			}
 			
-			if(genChat){
-				File dirSourceModS2 = new File(config.getHome() + "/src/client/modules/Utilisateur");
-				File dirDestModS2 = new File(path + "/client/modules/Utilisateur");
-				try {
-					generation.controleur.Utils.copy(dirSourceModS2, dirDestModS2);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				File dirSourceModS3 = new File(config.getHome() + "/src/client/modules/Notification");
-				File dirDestModS3 = new File(path + "/client/modules/Notification");
-				try {
-					generation.controleur.Utils.copy(dirSourceModS3, dirDestModS3);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+			
 			
 			//dossier moduleInterface
 			File dirModuleInterface = new File(path + "/commun/modules");
@@ -247,27 +266,7 @@ public class Generateur {
 				}
 			}
 			
-			if(genChat){
-				File dirSourceModI2 = new File(config.getHome() + "/src/commun/modules/Utilisateur");
-				File dirDestModI2 = new File(path + "/commun/modules/Utilisateur");
-				try {
-					generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				File dirSourceModI3 = new File(config.getHome() + "/src/commun/modules/Notification");
-				File dirDestModI3 = new File(path + "/commun/modules/Notification");
-				try {
-					generation.controleur.Utils.copy(dirSourceModI2, dirDestModI2);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				
-			}
+
 			
 			//contenu du dossier lib
 			File dirLib = new File(pat + "/lib");
@@ -293,6 +292,61 @@ public class Generateur {
 				e.printStackTrace();
 			}
 		
+			
+/////////////////////////////////////////////////////GENERATION MODULE ASSOCIE A CHAT/////////////////////////////////////////////////////
+
+			
+			if(genChat){
+				
+				//UTILISATEUR//
+				File dirSourceModS2 = new File(config.getHome() + "/src/client/modules/Utilisateur");
+				File dirDestModS2 = new File(path + "/client/modules/Utilisateur");
+				try {
+					generation.controleur.Utils.copy(dirSourceModS2, dirDestModS2);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				File dirSourceModI3 = new File(config.getHome() + "/src/commun/modules/Utilisateur");
+				File dirDestModI3 = new File(path + "/commun/modules/Utilisateur");
+				try {
+					generation.controleur.Utils.copy(dirSourceModI3, dirDestModI3);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				//NOTIFICATION//
+				File dirSourceModS3 = new File(config.getHome() + "/src/client/modules/Notification");
+				File dirDestModS3 = new File(path + "/client/modules/Notification");
+				try {
+					generation.controleur.Utils.copy(dirSourceModS3, dirDestModS3);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				File dirSourceModI4 = new File(config.getHome() + "/src/commun/modules/Notification");
+				File dirDestModI4 = new File(path + "/commun/modules/Notification");
+				try {
+					generation.controleur.Utils.copy(dirSourceModI4, dirDestModI4);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				//MESSAGE//
+				File dirSourceModI5 = new File(config.getHome() + "/src/commun/modules/chat/message");
+				File dirDestModI5 = new File(path + "/commun/modules/chat/message");
+				try {
+					generation.controleur.Utils.copy(dirSourceModI5, dirDestModI5);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
 	}
 
 	public void setGenChat(boolean b) {
