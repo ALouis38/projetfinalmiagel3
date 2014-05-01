@@ -3,6 +3,7 @@ package generation.vue;
 import generationmodule.VuePrincipale;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -16,6 +17,7 @@ import config.Configuratione;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -68,16 +70,28 @@ public class NexusMain extends JFrame {
 		JMenuItem mntmManuelDaide = new JMenuItem("Manuel d'aide");
 		mntmManuelDaide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Configuratione conf = new Configuratione();
-				String cmd = "okular "+ conf.getHome() +"/help.pdf";
-				Runtime runtime = Runtime.getRuntime();
-	            Process process = null;
-	            try {
-					process = runtime.exec(cmd);
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
+				//awt desktop - ouverture d'un fichier PDF avec le lecteur de PDF par défault - Multiplateforme
+				try {
+					Configuratione conf = new Configuratione();
+					File pdfFile = new File(conf.getHome() +"/help.pdf");
+					if (pdfFile.exists()) {
+			 
+						if (Desktop.isDesktopSupported()) {
+							Desktop.getDesktop().open(pdfFile);
+						} else {
+							System.out.println("Awt Desktop is not supported!");
+						}
+			 
+					} else {
+						System.out.println("File is not exists!");
+					}
+			 
+					System.out.println("Done");
+			 
+				  } catch (Exception ex) {
+					ex.printStackTrace();
+				  }
 			}
 		});
 		mnAide.add(mntmManuelDaide);
