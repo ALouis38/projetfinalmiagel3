@@ -15,7 +15,7 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 	public GestFileImpl() throws RemoteException {
 
 		super(1099);
-		listeFichiers = new ArrayList<String>();
+		listeFichiers = restaureListeFichiers();
 
 	}
 
@@ -57,6 +57,7 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 					fos.close();
 					System.out.println("Fichier écrit "+ tab.length );
 					listeFichiers.add(name);
+					updateListeFichiers();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -70,12 +71,55 @@ public class GestFileImpl extends UnicastRemoteObject implements GestFileInterfa
 		File f = new File("data/"+nom);
 		f.delete();
 		listeFichiers.remove(nom);
+		updateListeFichiers();
 		
 	}
 
 	@Override
 	public ArrayList<String> getListeFichiers() throws RemoteException {
 		return listeFichiers;
+	}
+	
+	private void updateListeFichiers() {
+		FileOutputStream fout;
+		try {
+			fout = new FileOutputStream ("listefichiers.dat");
+			ObjectOutputStream oos = new ObjectOutputStream(fout);
+			oos.writeObject(listeFichiers);
+			fout.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private ArrayList<String> restaureListeFichiers(){
+		ArrayList<String> liste = new ArrayList<String>();
+		File f = new File("listefichiers.dat");
+		if (f.exists()) {
+			FileInputStream fin;
+			try {
+				fin = new FileInputStream ("listefichiers.dat");
+				ObjectInputStream ois = new ObjectInputStream(fin);
+				liste = (ArrayList<String>)ois.readObject();
+				fin.close();
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return liste;
 	}
 
 }
