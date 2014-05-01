@@ -141,6 +141,9 @@ public class Nexus extends JFrame {
 					if(moduleSelect[i].toString().equals("chat")){
 						g.setGenChat(true);
 					}
+					if(moduleSelect[i].toString().equals("zip")){
+						g.setGenZip(true);
+					}
 					moduleSelect2.add(moduleSelect[i].toString());
 				}
 				
