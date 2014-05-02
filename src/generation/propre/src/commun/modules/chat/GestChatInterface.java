@@ -5,9 +5,9 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import rmi.commun.modules.Utilisateur.Utilisateur;
-import rmi.messages.Message;
-import rmi.messages.MessageChat;
+import commun.modules.Utilisateur.Utilisateur;
+import commun.modules.chat.message.Message;
+import commun.modules.chat.message.MessageChat;
 
 
 public interface GestChatInterface extends Remote {

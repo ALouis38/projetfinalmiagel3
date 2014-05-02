@@ -7,7 +7,7 @@ import java.rmi.server.UnicastRemoteObject;
 import javax.swing.JOptionPane;
 
 import commun.modules.Notification.GestNotificationInterface;
-import messages.Message;
+import commun.modules.chat.message.Message;
 
 public class GestNotificationImpl extends UnicastRemoteObject implements GestNotificationInterface {
 

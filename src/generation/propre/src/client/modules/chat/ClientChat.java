@@ -11,8 +11,8 @@ import client.modules.Utilisateur.ClientUtilisateur;
 import commun.modules.Utilisateur.GestUtilisateurInterface;
 import commun.modules.Utilisateur.Utilisateur;
 import commun.modules.chat.GestChatInterface;
-import messages.Message;
-import messages.MessageChat;
+import commun.modules.chat.message.Message;
+import commun.modules.chat.message.MessageChat;
 
 public class ClientChat extends Client {
 
