@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import rmi.client.modules.Notification.ClientNotification;
+import client.modules.Notification.ClientNotification;
 import client.core.Client;
 import client.modules.Utilisateur.ClientUtilisateur;
 import commun.modules.Utilisateur.GestUtilisateurInterface;

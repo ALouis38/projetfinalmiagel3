@@ -4,8 +4,8 @@ import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
-import rmi.client.modules.Notification.GestNotificationImpl;
-import rmi.client.modules.Notification.GestObjetImpl;
+import client.modules.Notification.GestNotificationImpl;
+import client.modules.Notification.GestObjetImpl;
 import client.core.Client;
 import commun.modules.Notification.GestNotificationInterface;
 public class ClientNotification extends Client {
