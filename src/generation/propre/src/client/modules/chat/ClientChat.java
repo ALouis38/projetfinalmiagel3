@@ -6,6 +6,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import rmi.client.modules.Notification.ClientNotification;
 import client.core.Client;
 import client.modules.Utilisateur.ClientUtilisateur;
 import commun.modules.Utilisateur.GestUtilisateurInterface;
@@ -18,18 +19,23 @@ public class ClientChat extends Client {
 
 	GestChatInterface chatI;
 	GestUtilisateurInterface gU;
+	String pseudo;
 
-	public ClientChat(int p, String aS, String pseudo) {
+	public ClientChat(int p, String aS, String pseudo, int regP) {
 		super(p, aS);
 		chatI = (GestChatInterface) getObjetRegistry("gestChat");
-		ClientUtilisateur cU = new ClientUtilisateur(p, aS, pseudo);
-
+		ClientNotification cN = new ClientNotification(p, aS, regP);
+		ClientUtilisateur cU = new ClientUtilisateur(p, aS, pseudo,regP);
+		this.pseudo = pseudo;
 	}
 
 	public void envoyerMessage(Message message) {
 		try {
-			HashMap<String, Utilisateur> users = gU.getListeUtilisateurs();
-			chatI.envoyerNotif(users, message, adresseServ);
+			gU = (GestUtilisateurInterface) getObjetRegistry("gestUtilisateur");
+			HashMap<String, Utilisateur> users = new HashMap<String, Utilisateur>();
+			users.putAll(gU.getListeUtilisateurs());
+			System.out.println("Nb Users:" + users.size());
+			chatI.envoyerNotif(users, message, "message");
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -46,4 +52,14 @@ public class ClientChat extends Client {
 		}
 	}
 
+	public String getPseudo() {
+		return pseudo;
+	}
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+	}
+
 }
+
+

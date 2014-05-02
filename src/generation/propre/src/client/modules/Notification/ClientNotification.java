@@ -4,16 +4,15 @@ import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
+import rmi.client.modules.Notification.GestNotificationImpl;
+import rmi.client.modules.Notification.GestObjetImpl;
 import client.core.Client;
 import commun.modules.Notification.GestNotificationInterface;
 public class ClientNotification extends Client {
-	GestNotificationInterface gestI;
-	public ClientNotification(int p, String aS) {
-		super(p, aS);
-		gestI = (GestNotificationInterface) getObjetRegistry("gestNotification");
-		
+	public ClientNotification(int p, String aS, int regP) {
+		super(p, aS);		
 		try {
-			LocateRegistry.createRegistry(2000);
+			LocateRegistry.createRegistry(regP);
 			GestNotificationImpl notif = new GestNotificationImpl();
 			
 			GestObjetImpl gestObj;
@@ -26,7 +25,8 @@ public class ClientNotification extends Client {
 			
 			gestObj = new GestObjetImpl();
 			try {
-				gestObj.addObjet(gestObj, "rmi://"+InetAddress.getLocalHost().getHostAddress()+":2000/"+"gestObj");
+				gestObj.addObjet(gestObj, "rmi://"+InetAddress.getLocalHost().getHostAddress()+":"+ regP +"/gestObj");
+				gestObj.addObjet(notif, "rmi://"+InetAddress.getLocalHost().getHostAddress()+":"+ regP +"/gestNotif");
 			} catch (UnknownHostException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

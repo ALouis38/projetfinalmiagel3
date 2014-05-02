@@ -18,12 +18,12 @@ public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtil
 
 	
 	@Override
-	public void addUtilisateur(String pseudo, String ip) {
+	public void addUtilisateur(String pseudo, String ip, int portReg) {
 		if(listeUtilisateurs.containsKey(pseudo)){
 			System.out.println("Pseudo deja utilisé!");
 		}
 		else{
-			listeUtilisateurs.put(pseudo, new Utilisateur(ip));
+			listeUtilisateurs.put(pseudo, new Utilisateur(ip, portReg));
 		}
 	}
 
@@ -36,6 +36,9 @@ public class GestUtilisateurImpl extends UnicastRemoteObject implements GestUtil
 
 
 	public HashMap<String, Utilisateur> getListeUtilisateurs() {
+		if(listeUtilisateurs == null){
+			System.out.println("!===============! Liste utilisateur vide !================!");
+		}
 		return listeUtilisateurs;
 	}
 }
