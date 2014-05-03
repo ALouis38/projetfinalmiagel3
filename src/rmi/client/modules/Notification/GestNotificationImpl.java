@@ -16,7 +16,7 @@ public class GestNotificationImpl extends UnicastRemoteObject implements GestNot
 	}
 
 	@Override
-	public void recupNotif(Message notif,String type) {
+	public Message recupNotif(Message notif,String type) {
 		if(type.equals("message")){
 			//TODO gestion message
 			System.out.println("Expediteur:"  + notif.getExpediteur());
@@ -28,6 +28,7 @@ public class GestNotificationImpl extends UnicastRemoteObject implements GestNot
 				    "Error",
 				    JOptionPane.ERROR_MESSAGE);
 		}
+		return notif;
 	}
 
 }
