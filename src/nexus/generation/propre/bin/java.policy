@@ -1,0 +1,4 @@
+// police générale, ouvrant tous les droits
+grant {
+	permission java.security.AllPermission;
+};
