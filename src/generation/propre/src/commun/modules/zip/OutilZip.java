@@ -1,4 +1,4 @@
-package commun.modules.Zip;
+package generation.propre.src.commun.modules.zip;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

@@ -1,6 +1,6 @@
-package generation.propre.src.client.modules.chat;
+package client.modules.chat;
 
-import rmi.commun.modules.chat.message.Message;
+import commun.modules.chat.message.Message;
 
 public interface EcouteurMessage {
 	public void messageRecu(Message m);

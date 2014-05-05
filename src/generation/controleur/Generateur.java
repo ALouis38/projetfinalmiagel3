@@ -78,18 +78,17 @@ public class Generateur {
 		dirModuleServeur.mkdir();
 		
 		for(int i = 0; i<listeModule.size(); i++){
-			if(!genZip){
 				String module = listeModule.get(i);
-				File dirSourceModS = new File(cheminPropre + "/src/serveur/modules/"+module);
-				File dirDestModS = new File(path + "/serveur/modules/"+module);
-				try {
-					generation.controleur.Utils.copy(dirSourceModS, dirDestModS);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				if (!(module.equals("zip"))) {
+					File dirSourceModS = new File(cheminPropre + "/src/serveur/modules/"+module);
+					File dirDestModS = new File(path + "/serveur/modules/"+module);
+					try {
+						generation.controleur.Utils.copy(dirSourceModS, dirDestModS);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
-			}
-
 		}
 		
 
@@ -242,8 +241,8 @@ public class Generateur {
 			dirModuleServeur.mkdir();
 			
 			for(int i = 0; i<listeModule.size(); i++){
-				if(!genZip){
-					String module = listeModule.get(i);
+				String module = listeModule.get(i);
+				if(!(module.equals("zip"))){
 					File dirSourceModS = new File(cheminPropre + "/src/client/modules/"+module);
 					File dirDestModS = new File(path + "/client/modules/"+module);
 					try {
