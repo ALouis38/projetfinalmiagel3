@@ -12,6 +12,7 @@ import rmi.commun.modules.chat.message.MessageChat;
 
 public interface GestChatInterface extends Remote {
 	
+	//Permet l'envoi de notification aux utilisateurs de la liste
 	public void envoyerNotif(HashMap<String,Utilisateur> users, Message m, String type) throws RemoteException ;
 	public ArrayList<Message> recevoirMessage(int indice) throws RemoteException ;
 	
