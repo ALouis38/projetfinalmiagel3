@@ -16,6 +16,13 @@ import java.util.zip.*;
 
 public class OutilZip {
 	
+	/**
+	 * compression permet de compresser des fichiers listés dans une archive qui
+	 * sera créée dans une deuxiéme répertoire
+	 * 
+	 * @param fichiers, les fichiers à compresser
+	 * @param repertoire, le repertoire de destination de l'archive
+	 */
 	public void compression(String[] fichiers, String repertoire) {
 		byte[] data = null;
 		try {
