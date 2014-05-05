@@ -6,29 +6,26 @@ import java.rmi.server.UnicastRemoteObject;
 
 import javax.swing.JOptionPane;
 
+import rmi.client.modules.chat.EcouteurMessage;
 import rmi.commun.modules.Notification.GestNotificationInterface;
 import rmi.commun.modules.chat.message.Message;
 
 public class GestNotificationImpl extends UnicastRemoteObject implements GestNotificationInterface {
 
+	private EcouteurMessage eM;
+	
 	protected GestNotificationImpl() throws RemoteException {
 		super();
 	}
 
 	@Override
 	public Message recupNotif(Message notif,String type) {
-		if(type.equals("message")){
-			//TODO gestion message
-			System.out.println("Expediteur:"  + notif.getExpediteur());
-			System.out.println("Message:"  + notif.getTexte());
-		}
-		else if(type.equals("error")){
-			JOptionPane.showMessageDialog(new Frame(),
-					"Expediteur:"  + notif.getExpediteur() + "Message:"  + notif.getTexte(),
-				    "Error",
-				    JOptionPane.ERROR_MESSAGE);
-		}
+		eM.messageRecu(notif);		
 		return notif;
+	}
+
+	public void setEcouteurMessage(EcouteurMessage ecouteurM) {
+		this.eM = ecouteurM;		
 	}
 
 }

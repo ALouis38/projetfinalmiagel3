@@ -9,11 +9,14 @@ import client.modules.Notification.GestObjetImpl;
 import client.core.Client;
 import commun.modules.Notification.GestNotificationInterface;
 public class ClientNotification extends Client {
+	GestNotificationImpl notif;
+	
+	
 	public ClientNotification(int p, String aS, int regP) {
 		super(p, aS);		
 		try {
 			LocateRegistry.createRegistry(regP);
-			GestNotificationImpl notif = new GestNotificationImpl();
+			notif = new GestNotificationImpl();
 			
 			GestObjetImpl gestObj;
 			try {
@@ -37,5 +40,10 @@ public class ClientNotification extends Client {
 			e.printStackTrace();
 		}	
 		
+	}
+
+
+	public GestNotificationImpl getGestNotif() {
+		return notif;
 	}
 }

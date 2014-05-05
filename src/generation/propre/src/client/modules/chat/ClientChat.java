@@ -20,11 +20,12 @@ public class ClientChat extends Client {
 	GestChatInterface chatI;
 	GestUtilisateurInterface gU;
 	String pseudo;
+	ClientNotification cN;
 
 	public ClientChat(int p, String aS, String pseudo, int regP) {
 		super(p, aS);
 		chatI = (GestChatInterface) getObjetRegistry("gestChat");
-		ClientNotification cN = new ClientNotification(p, aS, regP);
+		cN = new ClientNotification(p, aS, regP);
 		ClientUtilisateur cU = new ClientUtilisateur(p, aS, pseudo,regP);
 		this.pseudo = pseudo;
 	}
@@ -58,6 +59,24 @@ public class ClientChat extends Client {
 
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
+	}
+
+	public GestChatInterface getChatI() {
+		return chatI;
+	}
+
+	public ClientNotification getcN() {
+		return cN;
+	}
+
+	public void deconnection(String pseudo) {
+		try {
+			gU.removeUtilisateur(pseudo);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

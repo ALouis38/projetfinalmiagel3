@@ -4,14 +4,19 @@ import java.net.UnknownHostException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
+import rmi.client.modules.Notification.GestNotificationImpl;
+import rmi.client.modules.Notification.GestObjetImpl;
 import rmi.client.core.Client;
 import rmi.commun.modules.Notification.GestNotificationInterface;
 public class ClientNotification extends Client {
+	GestNotificationImpl notif;
+	
+	
 	public ClientNotification(int p, String aS, int regP) {
 		super(p, aS);		
 		try {
 			LocateRegistry.createRegistry(regP);
-			GestNotificationImpl notif = new GestNotificationImpl();
+			notif = new GestNotificationImpl();
 			
 			GestObjetImpl gestObj;
 			try {
@@ -35,5 +40,10 @@ public class ClientNotification extends Client {
 			e.printStackTrace();
 		}	
 		
+	}
+
+
+	public GestNotificationImpl getGestNotif() {
+		return notif;
 	}
 }
